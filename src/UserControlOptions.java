@@ -18,11 +18,11 @@ public class UserControlOptions {
         }
     }
 
-    public static void favouriteList(){
+    public static void addFavouriteList(){
         // TODO
     }
 
-    public static void watchedList(){
+    public static void addWatchedList(){
         // TODO
     }
 }

@@ -3,7 +3,7 @@ import java.util.Date;
 
 public class Actor {
     // Name, year of birth, whatever. Maybe a list of movies where they act?
-    public String name;
-    public Date DOB;
-    public ArrayList<Movie> actedIn;
+    private String name;
+    private Date DOB;
+    private ArrayList<Movie> actedIn;
 }

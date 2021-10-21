@@ -2,8 +2,8 @@ import java.util.ArrayList;
 
 public class Movie {
     // Attributes: Name, Year, Actors (list) and roles, etc.
-    public String name;
-    public int year;
-    public ArrayList<Actor> actors;
-    public ArrayList<String> roles;
+    private String name;
+    private int year;
+    private ArrayList<Actor> actors;
+    private ArrayList<String> roles;
 }
