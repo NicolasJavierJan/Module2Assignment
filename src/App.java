@@ -9,7 +9,9 @@ public class App {
         try {
             choice = userInput.nextInt();
         } catch (Exception InputMismatchException){
+            System.out.println();
             System.out.println("NUMBERS PLEASE");
+            System.out.println();
         }
         return choice;
     }

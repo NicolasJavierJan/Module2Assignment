@@ -1,5 +1,8 @@
 public class SystemControlOptions {
     public static void start() {
+
+        // TODO
+        // KASPER
         boolean keepAsking = true;
 
         while (keepAsking) {
