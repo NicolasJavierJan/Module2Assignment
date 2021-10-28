@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class UserControlOptions {
     public static void start(){
 
@@ -15,6 +17,7 @@ public class UserControlOptions {
             if (choice == 1){
                 // Go to Favourite List movie add
                 keepAsking = false;
+                addFavouriteList();
             } else if (choice == 2){
                 // Go to Watched List
                 keepAsking = false;

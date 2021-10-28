@@ -1,3 +1,5 @@
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class App {
@@ -16,7 +18,7 @@ public class App {
         return choice;
     }
 
-    public static void appMainChoices(){
+    public static void appMainChoices(File userList, File movieList) throws FileNotFoundException {
         boolean keepAsking = true;
 
         while (keepAsking) {
@@ -49,7 +51,7 @@ public class App {
             } else if (choice == 5) {
                 // Go to Play a Movie
                 keepAsking = false;
-                PlayMovie.start();
+                PlayMovie.start(movieList);
             } else {
                 System.out.println("What if you choose one of the options and quit playing with me, pal?");
             }

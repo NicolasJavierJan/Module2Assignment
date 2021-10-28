@@ -1,7 +1,11 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+
 public class UserManagementSystem {
     // TODO
     // JASMIN
-    public static void start(){
+    public static void start(File userList, File movieList) throws FileNotFoundException {
+
         boolean keepAsking = true;
 
         while (keepAsking) {
@@ -16,7 +20,7 @@ public class UserManagementSystem {
             // Choices:
             if (choice == 1) {
                 keepAsking = false;
-                userLogin();
+                userLogin(userList, movieList);
             } else if (choice == 2) {
                 keepAsking = false;
                 userRegister();
@@ -35,10 +39,10 @@ public class UserManagementSystem {
         // Or maybe just jump to the next part.
     }
 
-    public static void userLogin(){
+    public static void userLogin(File userList, File movieList) throws FileNotFoundException {
         // Placeholder.
         System.out.println("Logging innnn");
-        App.appMainChoices();
+        App.appMainChoices(userList, movieList);
     }
 
 }
