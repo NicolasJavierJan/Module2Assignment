@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class MovieSearch {
+    /*
 
     public static void start(File userList, File movieList, ArrayList<Movie> movies1) throws FileNotFoundException {
 
@@ -89,5 +90,5 @@ public class MovieSearch {
 
         }
     }
-
+*/
 }

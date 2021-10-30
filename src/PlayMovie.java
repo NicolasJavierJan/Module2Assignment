@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class PlayMovie {
+    /*
     private static ArrayList<Movie> listOfMovies = new ArrayList<>();
 
     public static void start(File userList, File movieList, ArrayList<Movie> movies1) throws FileNotFoundException {
@@ -61,5 +62,5 @@ public class PlayMovie {
         playMovie(userList, movieList, movies1);
         }
     }
-
+*/
 }

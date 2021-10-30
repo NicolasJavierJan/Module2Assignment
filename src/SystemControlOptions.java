@@ -3,10 +3,12 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class SystemControlOptions {
+    /*
     public static void start(File userList, File movieList, ArrayList<Movie> movies1) throws FileNotFoundException {
 
         // TODO
         // KASPER
+
         boolean keepAsking = true;
 
         while (keepAsking) {
@@ -217,6 +219,7 @@ public class SystemControlOptions {
             App.appMainChoices();
         }
         */
+    /*
     }
 
     public static void displayActors(File userList, File movieList, ArrayList<Movie> movies1) throws FileNotFoundException {
@@ -273,6 +276,7 @@ public class SystemControlOptions {
             App.appMainChoices();
         }
         */
+    /*
     }
 
     private Scanner input;
@@ -307,4 +311,5 @@ public class SystemControlOptions {
         System.out.println(input.nextLine());
         return line;
     }
+    */
 }

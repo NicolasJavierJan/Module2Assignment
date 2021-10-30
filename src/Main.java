@@ -8,30 +8,109 @@ import java.util.ArrayList;
 // Do the SEE STATISTICS
 
 public class Main {
+
+    public static ArrayList<Movie> movies = new ArrayList<>();
+    public static ArrayList<User> users = new ArrayList<>();
+
     public static void main(String[] args) throws FileNotFoundException {
-        // TODO
-        // NICO
-        // ******* Nico did this part *******
+/*
+        // This is ONLY for the first time. Delete later (or comment out)
 
-        // Create/Read from Users File
-        File userList = new File("src/users.txt");
-        // Create/Read from Movies File
-        File movieList = new File("src/movies.txt");
+        // ArrayLists of Movies and Users
+        ArrayList<Movie> movieArray = addingMovie();
+        ArrayList<User> userArray = addingUser();
 
-        ArrayList<Movie> movies1 = new ArrayList<>();
+        // Serializing Movie ArrayList and User ArrayList
 
-        // Serializing Movie ArrayList
+        serializeMovies(movieArray);
+        serializeUser(userArray);
+*/
+        // This is what should happen first:
+        // Deserialize Users and Movies .ser file
+
+
         try {
-            FileOutputStream fos = new FileOutputStream("src/Movies.ser");
-            ObjectOutputStream oos = new ObjectOutputStream(fos);
+            FileInputStream moviesIn = new FileInputStream("src/Movies.ser");
+            FileInputStream usersIn = new FileInputStream("src/Users.ser");
+            ObjectInputStream oisMovies = new ObjectInputStream(moviesIn);
+            ObjectInputStream oisUsers = new ObjectInputStream(usersIn);
+            Main.movies = (ArrayList) oisMovies.readObject();
+            Main.users = (ArrayList) oisUsers.readObject();
+            oisMovies.close();
+            oisUsers.close();
+            moviesIn.close();
+            usersIn.close();
+        } catch (IOException e){
+            e.printStackTrace();
+        } catch (ClassNotFoundException c){
+            c.printStackTrace();
+        }
 
-            oos.writeObject(addingMovies());
-            oos.close();
-            fos.close();
+        System.out.println("Hello, there! Welcome to the Movies App");
+        System.out.println();
+        UserManagementSystem.start();
+
+    }
+
+    /*
+    // Method for creating ONE EXAMPLE MOVIE, ONLY FIRST TIME. IT CAN BE DELETED LATER.
+    public static ArrayList<Movie> addingMovie(){
+        ArrayList<String> actors = new ArrayList<>();
+        actors.add("Nico");
+        actors.add("Andrea");
+        actors.add("Jasmin");
+
+        ArrayList<String> roles = new ArrayList<>();
+        roles.add("Example 1");
+        roles.add("Example 2");
+        roles.add("Example 3");
+
+        ArrayList<Movie> movies = new ArrayList<>();
+        movies.add(new Movie("Movie 1", 2021, actors, roles));
+
+        return movies;
+    }
+
+    public static ArrayList<User> addingUser(){
+        ArrayList<Movie> favouriteList = new ArrayList<>();
+        ArrayList<String> historyList = new ArrayList<>();
+
+        User admin = new User("admin", "admin", favouriteList, historyList);
+
+        ArrayList<User> users = new ArrayList<>();
+        users.add(admin);
+
+        return users;
+    }
+
+    public static void serializeMovies(ArrayList<Movie> movieList){
+        try {
+            FileOutputStream fosMovies = new FileOutputStream("src/Movies.ser");
+            ObjectOutputStream oosMovies = new ObjectOutputStream(fosMovies);
+
+            oosMovies.writeObject(movieList);
+            oosMovies.close();
+            fosMovies.close();
+
         } catch (IOException ioe){
             ioe.printStackTrace();
         }
-        /*
+    }
+
+    public static void serializeUser(ArrayList<User> userList){
+        try {
+            FileOutputStream fosUser = new FileOutputStream("src/Users.ser");
+            ObjectOutputStream oosUser = new ObjectOutputStream(fosUser);
+
+            oosUser.writeObject(userList);
+            oosUser.close();
+            fosUser.close();
+
+        } catch (IOException ioe){
+            ioe.printStackTrace();
+        }
+    }
+
         // Deserializing Movie ArrayList
         ArrayList<Movie> movies = new ArrayList<>();
         try {
@@ -50,57 +129,5 @@ public class Main {
         }
         */
 
-        System.out.println("Hello, there! Welcome to the Movies App");
-        System.out.println();
-        UserManagementSystem.start(userList, movieList, movies1);
 
-
-    }
-
-    // ******* Nico used this ************
-    public static ArrayList<Movie> addingMovies(){
-        ArrayList<String> actors = new ArrayList<>();
-        actors.add("Nico");
-        actors.add("Andrea");
-        actors.add("Jasmin");
-
-        ArrayList<String> roles = new ArrayList<>();
-        roles.add("Example 1");
-        roles.add("Example 2");
-        roles.add("Example 3");
-
-        ArrayList<Movie> movies = new ArrayList<>();
-        movies.add(new Movie("Movie 1", 2021, actors, roles));
-        movies.add(new Movie("Movie 2", 2020, actors, roles));
-        movies.add(new Movie("Movie 3", 2019, actors, roles));
-
-        return movies;
-    }
-
-
-
-
-
-    // ******* Kim used this ************
-    // Arraylist
-    // Movie arraylist constructed with movie class.
-    ArrayList<Movie> movies1 = new ArrayList<>();
-    //ArrayList<Actor> actors = new ArrayList<>();
-
-    // Movie names (I used video game names)
-    Movie m1 = new Movie("RedDead Redemption", 2015);
-    Movie m2 = new Movie("Skyrim", 2012);
-    Movie m3 = new Movie("Witcher 3", 2015);
-
-    /*
-    // Adding to the movie arraylist
-        movies1.add(m1);
-        movies1.add(m2);
-        movies1.add(m3);
-
-
-    // Search methods
-    MovieSearch.searchMovie(movies1);
-    MovieSearch.searchMovieYear(movies1);
-     */
 }

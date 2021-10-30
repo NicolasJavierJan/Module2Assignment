@@ -7,6 +7,7 @@ import java.util.*;
 // ANDREA
 
 public class UserControlOptions {
+    /*
 
     public static void start(File userList, File movieList, ArrayList<Movie> movies1) throws FileNotFoundException {
         title();
@@ -246,4 +247,6 @@ public class UserControlOptions {
     public static void addWatchedList(String movie) {
         watchedList.add(movie);
     }
+
+     */
 }

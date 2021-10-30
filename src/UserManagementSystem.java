@@ -4,12 +4,10 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class UserManagementSystem {
-    // TODO
-    // JASMIN
 
     public static ArrayList<UserInfo> registerInfo = new ArrayList<UserInfo>();
 
-    public static void start(File userList, File movieList, ArrayList<Movie> movies1) throws FileNotFoundException {
+    public static void start() {
         boolean keepAsking = true;
 
         while (keepAsking) {
@@ -23,9 +21,8 @@ public class UserManagementSystem {
 
             // Choices:
             if (choice == 1) {
-                if (userLogin(userList, movieList, movies1)) {
-                    keepAsking = false;
-                }
+                userLogin();
+                keepAsking = false;
             } else if (choice == 2) {
                 userRegister();
             } else {
@@ -37,6 +34,7 @@ public class UserManagementSystem {
     }
 
     public static void userRegister(){
+        /*
         Scanner registerUser = new Scanner(System.in);
         System.out.println("Enter username: ");
         String username = registerUser.nextLine();
@@ -45,9 +43,11 @@ public class UserManagementSystem {
         System.out.println("Registering");
         UserInfo login = new UserInfo (username, password);
         registerInfo.add(login);
+        */
     }
 
-    public static boolean userLogin(File userList, File movieList, ArrayList<Movie> movies1) throws FileNotFoundException {
+    public static void userLogin() {
+        /*
         Scanner LoginUser = new Scanner(System.in);
         System.out.println("Enter username: ");
         String usernameLogin = LoginUser.nextLine();
@@ -73,5 +73,6 @@ public class UserManagementSystem {
             return false;
         }
         return keepAsking;
+        */
     }
 }

@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 public class App {
 
+
     public static int userChoice(){
         // Creates a Scanner, waits for the User Choice and returns the choice.
         Scanner userInput = new Scanner(System.in);
@@ -18,8 +19,8 @@ public class App {
         }
         return choice;
     }
-
-    public static void appMainChoices(File userList, File movieList, ArrayList<Movie> movies1) throws FileNotFoundException {
+/*
+    public static void appMainChoices() throws FileNotFoundException {
         boolean keepAsking = true;
 
         while (keepAsking) {
@@ -62,5 +63,6 @@ public class App {
             }
         }
     }
+    */
 
 }
