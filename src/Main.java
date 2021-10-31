@@ -116,9 +116,10 @@ public class Main {
         }
     }
 
-    */
+ */
+}
 
-    /*
+ /*
         // Deserializing Movie ArrayList
         ArrayList<Movie> movies = new ArrayList<>();
         try {
@@ -135,7 +136,4 @@ public class Main {
         for (Movie movie : movies){
             movie.printInfo();
         }
-        */
-
-
-}
+*/

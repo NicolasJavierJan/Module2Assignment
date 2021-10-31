@@ -22,7 +22,7 @@ public class Movie implements Serializable {
     }
 
     public String getName() {
-        return getName();
+        return this.name;
     }
 
     public int getYear() {

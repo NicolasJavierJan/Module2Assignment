@@ -66,7 +66,7 @@ public class SystemControlOptions {
         // TO DO: MAKE IT NUMBER ONLY ( Handle Exception)
         // TO DO: HANDLE EXCEPTION
         System.out.println("\nEnter movie release year:");
-        int year = userInput.nextInt();
+        int year = App.userChoice();
 
         // LOOP FOR ADDING ACTORS AND ROLES
         boolean addActorLoop = true;
@@ -133,6 +133,13 @@ public class SystemControlOptions {
         String userTitle = userInput.nextLine();
 
         // FOR EACH LOOP TO CHECK IF THE ARRAYLIST CONTAINS THE MOVIE
+            // This loop will always end with the message "movie not found"
+            // Because you are doing an if else statement with every movie
+            // if the movie is found, great
+            // but if not, it will tell you "movie not found".
+            // and then check the next movie, and again and again
+            // in an arraylist of 1000 movies even if you put the correct title the app will tell you 999 times that it didnt find the movie
+            // we can fix it by creating a boolean "moviefound" or whatever.
         for (Movie movie : Main.movies){
 
             if (movie.getName().equalsIgnoreCase(userTitle)){
@@ -184,11 +191,10 @@ public class SystemControlOptions {
     public static void displayMovie(){
 
         System.out.println("Here you can find the movie list: ");
-        /*
-        for (Movie movie : Main.movies){
-            System.out.println(movie.getTitle());
+
+        for (Movie movie : Main.movies) {
+            System.out.println(movie.getName());
         }
-         */
 
         System.out.println("\nWhat do you want to do now ?");
         menuSystemControlOptions();
@@ -197,11 +203,11 @@ public class SystemControlOptions {
     //DOESN'T WORK THE FOR EACH LOOP
     public static void displayActors (){
         System.out.println("Here you can find the movie list: ");
-        /*
+
         for (Movie movie : Main.movies){
             System.out.println(movie.getActors());
         }
-        */
+
         System.out.println("\nWhat do you want to do now ?");
         menuSystemControlOptions();
     }

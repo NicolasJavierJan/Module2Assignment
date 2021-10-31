@@ -48,7 +48,7 @@ public class App {
             } else if (choice == 3) {
                 // Go to Search For Movie
                 keepAsking = false;
-                //MovieSearch.start();
+                MovieSearch.start();
             } else if (choice == 4) {
                 // Go to See Statistics
                 keepAsking = false;
