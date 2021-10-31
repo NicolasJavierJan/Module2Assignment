@@ -46,7 +46,7 @@ public class MovieSearch {
         boolean found = false;
         String searchTitle = sc.nextLine();
         for (Movie i : movies1) {
-            if (i.getTitle().contains(searchTitle)) {
+            if (i.getName().contains(searchTitle)) {
                 System.out.println(i);
                 found = true;
             }
@@ -72,7 +72,7 @@ public class MovieSearch {
         boolean found = false;
         int searchYear = sc.nextInt();
         for(Movie i : movies1) {
-            if(i.getProdYear() == searchYear){
+            if(i.getYear() == searchYear){
                 System.out.println(i);
                 found = true;
             }

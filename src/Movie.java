@@ -21,6 +21,10 @@ public class Movie implements Serializable {
         this.name = name;
     }
 
+    public String getName() {
+        return getName();
+    }
+
     public int getYear() {
         return year;
     }
@@ -54,16 +58,4 @@ public class Movie implements Serializable {
         }
     }
 
-    // Added BY ANDREA
-    public Collection<Object> getTitle() {
-        return getTitle();
-    }
-
-    public int getProdYear() {
-        return getYear();
-    }
-
-    public String getName() {
-        return getName();
-    }
 }

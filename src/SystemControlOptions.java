@@ -135,7 +135,7 @@ public class SystemControlOptions {
         // FOR EACH LOOP TO CHECK IF THE ARRAYLIST CONTAINS THE MOVIE
         for (Movie movie : Main.movies){
 
-            if (movie.getTitle().contains(userTitle)){
+            if (movie.getName().equalsIgnoreCase(userTitle)){
 
                 // SUCCESS SCENARIO
                 Main.movies.remove(movie);
