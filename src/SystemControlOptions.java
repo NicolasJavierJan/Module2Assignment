@@ -1,114 +1,214 @@
 import java.io.*;
+import java.security.spec.RSAOtherPrimeInfo;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class SystemControlOptions {
-    /*
-    public static void start(File userList, File movieList, ArrayList<Movie> movies1) throws FileNotFoundException {
 
-        // TODO
-        // KASPER
+    public static void start()  {
 
+        System.out.println("\n--- System Control Options ---\n");
+        menuSystemControlOptions();
+
+
+    }
+
+    public static void menuSystemControlOptions(){
         boolean keepAsking = true;
-
         while (keepAsking) {
-            System.out.println("Welcome to System Control Options");
-            System.out.println("If you want to CREATE a Movie, press 1");
-            System.out.println("If you want to UPDATE a Movie, press 2");
-            System.out.println("If you want to DISPLAY a Movie, press 3");
-            System.out.println("If you want to DISPLAY Actors, press 4");
-            System.out.println("Go back, press 5");
 
+            System.out.println("· 1. Create movie and add actors" +
+                    "\n· 2. Update movie and add actors" +
+                    "\n· 3. Display movies" +
+                    "\n· 4. Display actors" +
+                    "\n· 9. Go back to main menu");
             int choice = App.userChoice();
 
             if (choice == 1) {
                 // Go to CREATE MOVIE
-                SystemControlOptions.createMovie(userList, movieList, movies1);
+                SystemControlOptions.createMovie();
                 keepAsking = false;
+                //createMovie();
             } else if (choice == 2) {
                 // Go to UPDATE MOVIE
-                SystemControlOptions.updateMovie(userList, movieList, movies1);
+                SystemControlOptions.updateMovie();
                 keepAsking = false;
             } else if (choice == 3) {
                 // Go to DISPLAY MOVIE
-                SystemControlOptions.displayMovie(userList, movieList, movies1);
+                SystemControlOptions.displayMovie();
                 keepAsking = false;
             } else if (choice == 4) {
                 // Go to DISPLAY Actors
-                SystemControlOptions.displayActors(userList, movieList, movies1);
+                SystemControlOptions.displayActors();
                 keepAsking = false;
-            } else if (choice == 5) {
-                App.appMainChoices(userList, movieList, movies1);
+            } else if (choice == 9) {
+                App.appMainChoices();
                 keepAsking = false;
             } else {
-                System.out.println("Pick one of the choices, c'mon");
+                System.out.println("! Please write a number and choose one of the following options !\n");
             }
         }
     }
 
-    public static void createMovie(File userList, File movieList, ArrayList<Movie> movies1) throws FileNotFoundException {
-        // TODO
-        Scanner makeNewFile = new Scanner(System.in);
-        System.out.println("Enter movie title: ");
-        String title = makeNewFile.nextLine();
-        System.out.println("Enter movie release year: ");
-        int year = Integer.parseInt(makeNewFile.nextLine());
-        System.out.println("Enter actor (name): -> Press 'Enter' -> Enter character in movie: ");
-        String actors = makeNewFile.nextLine();
-        String character = makeNewFile.nextLine();
+    // SHOULD WORK NOT SURE
+    public static void createMovie() {
 
-        // Creates a text file for each movie title
-        File createsMovieFile = new File(title);
-        FileOutputStream cm = new FileOutputStream(createsMovieFile, false);
-        PrintStream userInput2 = new PrintStream(cm);
+        ArrayList<String> newMovieActors = new ArrayList<>();
+        ArrayList<String> newActorRoles = new ArrayList<>();
 
-        userInput2.println("Movie title: \t" + title);
-        userInput2.println("Release year: \t" + year);
-        userInput2.println("Actors: \t\t\t\t" + "Characters:");
-        userInput2.println(actors + "\t\t\t\t" + character);
+        // CREATE A SCANNER FOR MOVIE TITLE
+        Scanner userInput = new Scanner(System.in);
+        System.out.println("\nEnter movie title: ");
+        String title = userInput.nextLine();
 
+        // USE SCANNER FOR MOVIE YEAR
+        // TO DO: MAKE IT NUMBER ONLY ( Handle Exception)
+        // TO DO: HANDLE EXCEPTION
+        System.out.println("\nEnter movie release year:");
+        int year = userInput.nextInt();
 
-        File addsToMovieActors = new File(title + " (actors)");
-        FileOutputStream ma = new FileOutputStream(addsToMovieActors, false);
-        PrintStream userInput1 = new PrintStream(ma);
+        // LOOP FOR ADDING ACTORS AND ROLES
+        boolean addActorLoop = true;
+        while (addActorLoop) {
 
-        userInput1.println("Actors: \t\t\t\t" + "Characters:");
-        userInput1.println(actors + "\t\t\t\t" + character);
+            //ADDING ACTOR
+            System.out.println("\nEnter actor name:");
+            String actor = userInput.nextLine();
+            newMovieActors.add(actor);
 
+            //ADDING ROLE
+            System.out.println("\nEnter actor's role:");
+            String actorRole = userInput.nextLine();
+            newActorRoles.add(actorRole);
 
-        boolean keepAsking = true;
-        while (keepAsking) {
-            Scanner newCharacter = new Scanner(System.in);
-            System.out.println("Press '1' to add more characters");
-            System.out.println("Press '2' for complete creating, go back to System Control Options");
-            int oneOrTwo = newCharacter.nextInt();
-            if (oneOrTwo == 1) {
-                Scanner addCharacterToFile = new Scanner(System.in);
-                System.out.println("Enter actor (name): -> Press 'Enter' -> Enter character in movie: ");
-                String ac = addCharacterToFile.nextLine();
-                String ch = addCharacterToFile.nextLine();
-                File addToMovieFile = new File(title);
-                FileOutputStream atm = new FileOutputStream(addToMovieFile, true);
-                PrintStream userInput3 = new PrintStream(atm);
-                userInput3.println(ac + "\t\t\t\t" + ch);
-                File addToActorsFile = new File(title + " (actors)");
-                FileOutputStream ata = new FileOutputStream(addToActorsFile, true);
-                PrintStream userInput4 = new PrintStream(ata);
-                userInput4.println(ac + "\t\t\t\t" + ch);
-                App.appMainChoices(userList, movieList, movies1);
-                keepAsking = false;
+            // ADD ANOTHER ACTOR LOOP
+            System.out.println("\nDo you want to add another actor?" +
+                    "\n· Yes" +
+                    "\n· No");
+            Scanner userInput1 = new Scanner(System.in);
+            String userAnswer1 = userInput1.nextLine();
+
+            // ADD ANOTHER ACTOR - ANSWER WRONG
+            if (!userAnswer1.equalsIgnoreCase("no") && !userAnswer1.equalsIgnoreCase("yes")) {
+                System.out.println("\n! Please answer with yes or no !");
             }
-            if (oneOrTwo == 2) {
-                App.appMainChoices(userList, movieList, movies1);
-                keepAsking = false;
-            } else {
-                System.out.println("type '1' or '2'");
+
+            // ADD ANOTHER ACTOR - ANSWER NO
+            if (userAnswer1.equalsIgnoreCase("no")) {
+                addActorLoop = false;
+
+                // ADD MOVIE IN THE ARRAYLIST OF MOVIES CREATING A NEW MOVIE OBJECT
+                Main.movies.add(new Movie(title, year, newMovieActors, newActorRoles));
+
+                System.out.println("\nOk, here you have the movie you have added:  " +
+                        "\nTitle: " + title + " " + "( " + year + " )" + "\n" +
+                        newMovieActors + "\n" +
+                        newActorRoles + "\n");
+
+                System.out.println("What do you want to do now?");
+                menuSystemControlOptions();
+            }
+
+            // ADD ANOTHER ACTOR - ANSWER YES
+            if (userAnswer1.equalsIgnoreCase("yes")) {
+                addActorLoop = true;
             }
         }
+
     }
 
-    public static void updateMovie(File userList, File movieList, ArrayList<Movie> movies1) throws FileNotFoundException {
-        // TODO
+    // SHOULD WORK NOT SURE
+    public static void updateMovie() {
+
+        // LOOP FOR REMOVING MOVIE
+        boolean removeMovieLoop = true;
+        while (removeMovieLoop){
+
+        System.out.println(Main.movies +
+        "\n· Please write the title of the movie you want to remove:");
+
+        // CREATE SCANNER FOR MOVIE THAT YOU WANT TO REMOVE
+        Scanner userInput = new Scanner(System.in);
+        String userTitle = userInput.nextLine();
+
+        // FOR EACH LOOP TO CHECK IF THE ARRAYLIST CONTAINS THE MOVIE
+        for (Movie movie : Main.movies){
+
+            if (movie.getTitle().contains(userTitle)){
+
+                // SUCCESS SCENARIO
+                Main.movies.remove(movie);
+                removeMovieLoop = false;
+
+                // LOOP FOR REMOVING ANOTHER MOVIE
+                boolean loopAddAnotherMovie = true;
+                while(loopAddAnotherMovie) {
+
+                    System.out.println("" +
+                            "\nDo you want to add another movie? " +
+                            "\n· Yes" +
+                            "\n· No ");
+
+                    Scanner userInput1 = new Scanner(System.in);
+                    String userAnswer1 = userInput1.nextLine();
+
+                    // ADD ANOTHER MOVIE - ANSWER WRONG
+                    if (!userAnswer1.equalsIgnoreCase("no") && !userAnswer1.equalsIgnoreCase("yes")) {
+                        System.out.println("\n! Please answer with yes or no !");
+                    }
+
+                    // ADD ANOTHER MOVIE - ANSWER NO
+                    if (userAnswer1.equalsIgnoreCase("no")) {
+                        loopAddAnotherMovie =false;
+                        System.out.println("\nOk, here you have your list updated: " + Main.movies + "\n");
+                        menuSystemControlOptions();
+                    }
+
+                    // ADD ANOTHER MOVIE - ANSWER YES
+                    if (userAnswer1.equalsIgnoreCase("yes")) {
+                        loopAddAnotherMovie = true;
+                    }
+                }
+
+            } else {
+                System.out.println("! Movie not found, please try again !");
+            }
+        }
+        }
+
+
+    }
+
+    // DOESN'T WORK THE FOR EACH LOOP
+    public static void displayMovie(){
+
+        System.out.println("Here you can find the movie list: ");
+        /*
+        for (Movie movie : Main.movies){
+            System.out.println(movie.getTitle());
+        }
+         */
+
+        System.out.println("\nWhat do you want to do now ?");
+        menuSystemControlOptions();
+    }
+
+    //DOESN'T WORK THE FOR EACH LOOP
+    public static void displayActors (){
+        System.out.println("Here you can find the movie list: ");
+        /*
+        for (Movie movie : Main.movies){
+            System.out.println(movie.getActors());
+        }
+        */
+        System.out.println("\nWhat do you want to do now ?");
+        menuSystemControlOptions();
+    }
+
+        /*--------------–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+         PREVIOUS UPDATE MOVIE - DELETE LATER
+
         Scanner overwriteFile = new Scanner(System.in);
         System.out.println("Enter movie title: ");
         String title = overwriteFile.nextLine();
@@ -155,19 +255,19 @@ public class SystemControlOptions {
                 FileOutputStream ata = new FileOutputStream(addToActorsFile, true);
                 PrintStream userInput4 = new PrintStream(ata);
                 userInput4.println(ac + "\t\t\t\t" + ch);
-                App.appMainChoices(userList, movieList, movies1);
+                App.appMainChoices();
                 keepAsking = false;
             }
             if (oneOrTwo == 2) {
-                App.appMainChoices(userList, movieList, movies1);
+                App.appMainChoices();
                 keepAsking = false;
             } else {
                 System.out.println("type '1' or '2'");
             }
         }
     }
-
-    public static void displayMovie(File userList, File movieList, ArrayList<Movie> movies1) throws FileNotFoundException {
+--------------––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– /*
+    public static void displayMovie() {
         // TODO
         Scanner displayMovieFile = new Scanner(System.in);
         System.out.println("Enter movie title: ");
@@ -194,122 +294,60 @@ public class SystemControlOptions {
             if (oneOrTwo == 1) {
                 displayMovie(userList, movieList, movies1);
             } else {
-                App.appMainChoices(userList, movieList, movies1);
+                App.appMainChoices();
             }
         }
+ --------------––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– */
+    // Creates a text file for each movie title
+        /* PREVIOUS CREATE MOVIE DELETE LATER
+        File createsMovieFile = new File(title);
+        FileOutputStream cm = new FileOutputStream(createsMovieFile, false);
+        PrintStream userInput2 = new PrintStream(cm);
 
-        // something with hasNextLine to print all lines in the file.
-        /*
-        fileReader.openFile(title);
-        fileReader.readAndReturnOneLine();
-        fileReader.readAndReturnOneLine();
-        fileReader.readAndReturnOneLine();
-        fileReader.closeFileAfterUse();
 
-        System.out.println("");
+        userInput2.println("Movie title: \t" + title);
+        userInput2.println("Release year: \t" + year);
+        userInput2.println("Actors: \t\t\t\t" + "Characters:");
+        userInput2.println(actors + "\t\t\t\t" + character);
 
-        Scanner newSearch = new Scanner(System.in);
-        System.out.println("Press '1' for new search");
-        System.out.println("Press '2' for System Control Options");
-        int oneOrTwo = newSearch.nextInt();
 
-        if (oneOrTwo == 1) {
-            displayMovie();
-        } else {
-            App.appMainChoices();
-        }
-        */
-    /*
-    }
+        File addsToMovieActors = new File(title + " (actors)");
+        FileOutputStream ma = new FileOutputStream(addsToMovieActors, false);
+        PrintStream userInput1 = new PrintStream(ma);
 
-    public static void displayActors(File userList, File movieList, ArrayList<Movie> movies1) throws FileNotFoundException {
-        // TODO
-        Scanner displayActorsFile = new Scanner(System.in);
-        System.out.println("Enter movie title: ");
-        String title = displayActorsFile.nextLine();
+        userInput1.println("Actors: \t\t\t\t" + "Characters:");
+        userInput1.println(actors + "\t\t\t\t" + character);
 
-        SystemControlOptions fileReader = new SystemControlOptions();
 
-        boolean didOpen = fileReader.openFile(title + " (actors)");
-
-        if (didOpen) {
-            while (fileReader.getScanner().hasNextLine()) {
-                System.out.println(fileReader.readAndReturnOneLine());
-            }
-
-            fileReader.closeFileAfterUse();
-
-            System.out.println("");
-
-            Scanner newSearch = new Scanner(System.in);
-            System.out.println("Press '1' for new search");
-            System.out.println("Press '2' for System Control Options");
-            int oneOrTwo = newSearch.nextInt();
-
+        boolean keepAsking = true;
+        while (keepAsking) {
+            Scanner newCharacter = new Scanner(System.in);
+            System.out.println("Press '1' to add more characters");
+            System.out.println("Press '2' for complete creating, go back to System Control Options");
+            int oneOrTwo = newCharacter.nextInt();
             if (oneOrTwo == 1) {
-                displayActors(userList, movieList, movies1);
+                Scanner addCharacterToFile = new Scanner(System.in);
+                System.out.println("Enter actor (name): -> Press 'Enter' -> Enter character in movie: ");
+                String ac = addCharacterToFile.nextLine();
+                String ch = addCharacterToFile.nextLine();
+                File addToMovieFile = new File(title);
+                FileOutputStream atm = new FileOutputStream(addToMovieFile, true);
+                PrintStream userInput3 = new PrintStream(atm);
+                userInput3.println(ac + "\t\t\t\t" + ch);
+                File addToActorsFile = new File(title + " (actors)");
+                FileOutputStream ata = new FileOutputStream(addToActorsFile, true);
+                PrintStream userInput4 = new PrintStream(ata);
+                userInput4.println(ac + "\t\t\t\t" + ch);
+                App.appMainChoices();
+                keepAsking = false;
+            }
+            if (oneOrTwo == 2) {
+                App.appMainChoices();
+                keepAsking = false;
             } else {
-                App.appMainChoices(userList, movieList, movies1);
+                System.out.println("type '1' or '2'");
             }
         }
 
-        /*
-        fileReader.openFile(title + " (actors)");
-        fileReader.readAndReturnOneLine();
-        fileReader.readAndReturnOneLine();
-        fileReader.readAndReturnOneLine();
-
-        // something with hasNextLine to print all lines in the file.
-
-        fileReader.closeFileAfterUse();
-
-        System.out.println("");
-
-        Scanner newSearch = new Scanner(System.in);
-        System.out.println("Press '1' for new search");
-        System.out.println("Press '2' for System Control Options");
-        int oneOrTwo = newSearch.nextInt();
-
-        if (oneOrTwo == 1) {
-            displayActors();
-        } else {
-            App.appMainChoices();
-        }
-        */
-    /*
-    }
-
-    private Scanner input;
-
-    public Boolean openFile(String filename)
-    {
-        Boolean success = false;
-        File f = new File(filename);
-
-        try {
-            input = new Scanner(f);
-            success = true;
-        }
-        catch (FileNotFoundException e) {
-            System.out.println("Error. File not found");
-        }
-        return success;
-    }
-
-    public Scanner getScanner() {
-        return input;
-    }
-
-    public void closeFileAfterUse()
-    {
-        input.close();
-    }
-
-    public String readAndReturnOneLine()
-    {
-        String line = "";
-        System.out.println(input.nextLine());
-        return line;
-    }
-    */
+        ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– */
 }

@@ -7,21 +7,19 @@ import java.util.*;
 // ANDREA
 
 public class UserControlOptions {
-    /*
 
-    public static void start(File userList, File movieList, ArrayList<Movie> movies1) throws FileNotFoundException {
-        title();
-        menuUserControlOptions(userList, movieList, movies1);
+
+    public static void start()  {
+
+        System.out.println("\n--- User Control Options ---\n");
+
+        menuUserControlOptions();
     }
 
 // METHODS:
-    // JUST PRINTING TITLE
-    public static void title() {
-        System.out.println("\n--- User Control Options ---\n");
-    }
 
     // GENERAL MENU : 1: Add movie - 2: see list - 3: go back
-    public static void menuUserControlOptions(File userList, File movieList, ArrayList<Movie> movies1) throws FileNotFoundException {
+    public static void menuUserControlOptions() {
         boolean keepAsking = true;
         while (keepAsking){
             System.out.println("· 1. Access Favourites List" +
@@ -31,13 +29,13 @@ public class UserControlOptions {
             int userAnswer = App.userChoice();
             if (userAnswer == 1) {
                 keepAsking = false;
-                goToFavouriteList(userList, movieList, movies1);
+                goToFavouriteList();
             } else if (userAnswer == 2) {
                 keepAsking = false;
-                goToWatchedList(userList, movieList, movies1);
+                goToWatchedList();
             } else if (userAnswer == 9) {
                 keepAsking = false;
-                App.appMainChoices(userList, movieList, movies1);
+                App.appMainChoices();
             }
         }
     }
@@ -51,7 +49,7 @@ public class UserControlOptions {
     }
 
     // FAVOURITE LIST
-    public static void goToFavouriteList(File userList, File movieList, ArrayList<Movie> movies1) throws FileNotFoundException {
+    public static void goToFavouriteList() {
         System.out.println("\n--- Favourites List ---\n" );
         boolean loopFromStart = true;
         while (loopFromStart) {
@@ -106,7 +104,7 @@ public class UserControlOptions {
                                 loopChoice1 = false;
                                 loopAddAnotherMovie =false;
                                 System.out.println("\nOk, here you have your list updated: " + favouriteList + "\n");
-                                menuUserControlOptions(userList, movieList, movies1);
+                                menuUserControlOptions();
                             }
 
                             // ADD ANOTHER MOVIE - ANSWER YES
@@ -134,7 +132,7 @@ public class UserControlOptions {
                 } else if (choice == 9){
                     loopMenuFavList = false;
                     loopFromStart = false;
-                    menuUserControlOptions(userList, movieList, movies1);
+                    menuUserControlOptions();
                 }
             }
         }
@@ -149,7 +147,7 @@ public class UserControlOptions {
     }
 
     // WATCHED LIST
-    public static void goToWatchedList (File userList, File movieList, ArrayList<Movie> movies1) throws FileNotFoundException {
+    public static void goToWatchedList () {
         System.out.println("\n--- Watched List ---\n" );
         boolean loopFromStart = true;
         while (loopFromStart) {
@@ -203,7 +201,7 @@ public class UserControlOptions {
                                 loopChoice1 = false;
                                 loopAddAnotherMovie =false;
                                 System.out.println("\nOk, here you have your list updated: " + watchedList + "\n");
-                                menuUserControlOptions(userList, movieList, movies1);
+                                menuUserControlOptions();
                             }
 
                             // ADD ANOTHER MOVIE - ANSWER YES
@@ -230,7 +228,7 @@ public class UserControlOptions {
                 } else if (choice == 9){
                     loopMenuFavList = false;
                     loopFromStart = false;
-                    menuUserControlOptions(userList, movieList, movies1);
+                    menuUserControlOptions();
                 }
             }
         }
@@ -247,6 +245,4 @@ public class UserControlOptions {
     public static void addWatchedList(String movie) {
         watchedList.add(movie);
     }
-
-     */
 }

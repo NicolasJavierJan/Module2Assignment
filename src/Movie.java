@@ -1,5 +1,6 @@
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collection;
 
 public class Movie implements Serializable {
 
@@ -51,5 +52,18 @@ public class Movie implements Serializable {
         for (int i = 0; i < actors.size(); i++){
             System.out.println(actors.get(i) + " as " + roles.get(i));
         }
+    }
+
+    // Added BY ANDREA
+    public Collection<Object> getTitle() {
+        return getTitle();
+    }
+
+    public int getProdYear() {
+        return getYear();
+    }
+
+    public String getName() {
+        return getName();
     }
 }

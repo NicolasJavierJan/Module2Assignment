@@ -3,10 +3,10 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class PlayMovie {
-    /*
+
     private static ArrayList<Movie> listOfMovies = new ArrayList<>();
 
-    public static void start(File userList, File movieList, ArrayList<Movie> movies1) throws FileNotFoundException {
+    public static void start() {
         // TODO
         // Try to deserialize the ArrayList of Movies.
         try {
@@ -24,11 +24,11 @@ public class PlayMovie {
             c.printStackTrace();
         }
 
-        playMovie(userList, movieList, movies1);
+        playMovie();
     }
 
-    public static void playMovie(File userList, File movieList, ArrayList<Movie> movies1) throws FileNotFoundException {
-        System.out.println("Which movie would you like to see?");
+    public static void playMovie()  {
+        System.out.println("· Which movie would you like to see?");
 
         Scanner userInput = new Scanner(System.in);
         String userResponse = userInput.nextLine();
@@ -44,23 +44,23 @@ public class PlayMovie {
         if (movieFound != null){
             movieFound.printInfo();
         } else {
-            System.out.println("Cannot find that movie, pal. Sorry ☺");
-            System.out.println("Type 1, to try again!");
-            System.out.println("Type 2, to go back");
+            System.out.println("! Cannot find that movie, pal. Sorry ☺ !");
+            System.out.println("· 1. Play another movie");
+            System.out.println("· 9. Go back");
             boolean keepAsking = true;
             while (keepAsking) {
                 Scanner answer = new Scanner(System.in);
                 int oneOrTwo = answer.nextInt();
                 if (oneOrTwo == 1) {
-                    playMovie(userList, movieList, movies1);
-                } else if (oneOrTwo == 2) {
-                    App.appMainChoices(userList, movieList, movies1);
+                    playMovie();
+                } else if (oneOrTwo == 9) {
+                    App.appMainChoices();
                 } else {
-                    System.out.println("type '1' or '2'");
+                    System.out.println("! Please write a number and choose one of the following options !");
                 }
             }
-        playMovie(userList, movieList, movies1);
+        playMovie();
         }
     }
-*/
+
 }

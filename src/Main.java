@@ -32,21 +32,25 @@ public class Main {
         try {
             FileInputStream moviesIn = new FileInputStream("src/Movies.ser");
             FileInputStream usersIn = new FileInputStream("src/Users.ser");
+
             ObjectInputStream oisMovies = new ObjectInputStream(moviesIn);
             ObjectInputStream oisUsers = new ObjectInputStream(usersIn);
+
             Main.movies = (ArrayList) oisMovies.readObject();
             Main.users = (ArrayList) oisUsers.readObject();
+
             oisMovies.close();
             oisUsers.close();
             moviesIn.close();
             usersIn.close();
+
         } catch (IOException e){
             e.printStackTrace();
         } catch (ClassNotFoundException c){
             c.printStackTrace();
         }
 
-        System.out.println("Hello, there! Welcome to the Movies App");
+        System.out.println("\n--- WELCOME TO MOVIE TIME ---");
         System.out.println();
         // First of all, going to Register/Login.
         UserManagementSystem.start();
