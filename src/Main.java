@@ -26,8 +26,8 @@ public class Main {
         serializeUser(userArray);
 */
         // This is what should happen first:
-        // Deserialize Users and Movies .ser file
-
+        // Deserialize Users and Movies .ser file and
+        // create the users and movies arraylist accessible for all the other classes.
 
         try {
             FileInputStream moviesIn = new FileInputStream("src/Movies.ser");
@@ -48,6 +48,7 @@ public class Main {
 
         System.out.println("Hello, there! Welcome to the Movies App");
         System.out.println();
+        // First of all, going to Register/Login.
         UserManagementSystem.start();
 
     }

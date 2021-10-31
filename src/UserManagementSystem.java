@@ -6,6 +6,7 @@ import java.util.Scanner;
 public class UserManagementSystem {
 
     public static ArrayList<UserInfo> registerInfo = new ArrayList<UserInfo>();
+    public static ArrayList<User> currentUser = null;
 
     public static void start() {
         boolean keepAsking = true;
@@ -25,6 +26,7 @@ public class UserManagementSystem {
                 keepAsking = false;
             } else if (choice == 2) {
                 userRegister();
+                keepAsking = false;
             } else {
                 System.out.println();
                 System.out.println("Please choose from a number in the list.");
@@ -34,6 +36,38 @@ public class UserManagementSystem {
     }
 
     public static void userRegister(){
+
+        System.out.println("So nice that you want to register!");
+        Scanner registerUser = new Scanner(System.in);
+
+        boolean keepAskingUsername = true;
+        while (keepAskingUsername) {
+            System.out.println("Please chose a username:");
+            String username = registerUser.nextLine();
+
+            boolean usernameChosen = false;
+
+            for (User user : Main.users) {
+                if (username.equalsIgnoreCase(user.getUsername())) {
+                    System.out.println("I'm sorry, the name has already been chosen.");
+                    usernameChosen = true;
+                }
+            }
+
+            if (!usernameChosen){
+                System.out.println("Great! Now please choose a password:");
+                String password = registerUser.nextLine();
+
+                Main.users.add(new User(username, password, new ArrayList<Movie>(), new ArrayList<String>()));
+                keepAskingUsername = false;
+            }
+        }
+
+        for (User user : Main.users){
+            user.printInfo();
+        }
+
+
         /*
         Scanner registerUser = new Scanner(System.in);
         System.out.println("Enter username: ");

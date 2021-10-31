@@ -14,6 +14,10 @@ public class User implements Serializable {
         this.historyList = historyList;
     }
 
+    public String getUsername(){
+        return this.username;
+    }
+
     public void printInfo(){
         System.out.println(username + " " + password);
     }
