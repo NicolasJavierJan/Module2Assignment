@@ -18,6 +18,10 @@ public class User implements Serializable {
         return this.username;
     }
 
+    public String getPassword(){
+        return this.password;
+    }
+
     public void printInfo(){
         System.out.println(username + " " + password);
     }

@@ -4,9 +4,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class UserManagementSystem {
-
-    public static ArrayList<UserInfo> registerInfo = new ArrayList<UserInfo>();
-    public static ArrayList<User> currentUser = null;
+    // Having a public static User that exists until logging out.
+    public static User currentUser = null;
 
     public static void start() {
         boolean keepAsking = true;
@@ -40,47 +39,61 @@ public class UserManagementSystem {
         System.out.println("So nice that you want to register!");
         Scanner registerUser = new Scanner(System.in);
 
+        // Boolean for asking until a username is not taken.
         boolean keepAskingUsername = true;
         while (keepAskingUsername) {
             System.out.println("Please chose a username:");
             String username = registerUser.nextLine();
 
-            boolean usernameChosen = false;
+            boolean invalidUsername = false;
 
             for (User user : Main.users) {
                 if (username.equalsIgnoreCase(user.getUsername())) {
                     System.out.println("I'm sorry, the name has already been chosen.");
-                    usernameChosen = true;
+                    invalidUsername = true;
                 }
             }
 
-            if (!usernameChosen){
+            if (!invalidUsername){
                 System.out.println("Great! Now please choose a password:");
                 String password = registerUser.nextLine();
 
                 Main.users.add(new User(username, password, new ArrayList<Movie>(), new ArrayList<String>()));
                 keepAskingUsername = false;
+
+                // ADD SERIALIZING OF THE NEW USERS TODO
+
+                userLogin();
             }
         }
-
-        for (User user : Main.users){
-            user.printInfo();
-        }
-
-
-        /*
-        Scanner registerUser = new Scanner(System.in);
-        System.out.println("Enter username: ");
-        String username = registerUser.nextLine();
-        System.out.println("Enter password: ");
-        String password = registerUser.nextLine();
-        System.out.println("Registering");
-        UserInfo login = new UserInfo (username, password);
-        registerInfo.add(login);
-        */
     }
 
     public static void userLogin() {
+
+        System.out.println("Welcome back! Let's log in");
+        Scanner logInUser = new Scanner(System.in);
+
+        boolean keepAsking = true;
+
+        while (keepAsking){
+            System.out.println("Please enter your Username:");
+            String username = logInUser.nextLine();
+            System.out.println("Please enter your password:");
+            String password = logInUser.nextLine();
+
+            for (User user : Main.users){
+                if (username.equalsIgnoreCase(user.getUsername()) && password.equalsIgnoreCase(user.getPassword())){
+                    System.out.println("Logging innnnn");
+                    keepAsking = false;
+                }
+            }
+
+            System.out.println("Username and password not valid :( ");
+
+        }
+
+
+
         /*
         Scanner LoginUser = new Scanner(System.in);
         System.out.println("Enter username: ");

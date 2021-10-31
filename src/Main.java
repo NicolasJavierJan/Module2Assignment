@@ -53,7 +53,7 @@ public class Main {
 
     }
 
-    /*
+/*
     // Method for creating ONE EXAMPLE MOVIE, ONLY FIRST TIME. IT CAN BE DELETED LATER.
     public static ArrayList<Movie> addingMovie(){
         ArrayList<String> actors = new ArrayList<>();
@@ -112,6 +112,8 @@ public class Main {
         }
     }
 
+    */
+    /*
         // Deserializing Movie ArrayList
         ArrayList<Movie> movies = new ArrayList<>();
         try {
