@@ -22,7 +22,7 @@ public class App {
 
     public static void appMainChoices() {
 
-        System.out.println("Hi Andrea.");
+        System.out.println("Hi " + UserManagementSystem.currentUser.getUsername());
         /*
         boolean keepAsking = true;
 

@@ -88,6 +88,7 @@ public class UserManagementSystem {
                     System.out.println("Logging innnnn");
                     keepAsking = false;
                     foundUser = true;
+                    currentUser = user;
                 }
             }
 
