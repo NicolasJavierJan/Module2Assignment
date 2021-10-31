@@ -20,7 +20,7 @@ public class App {
         return choice;
     }
 /*
-    public static void appMainChoices() throws FileNotFoundException {
+    public static void appMainChoices() {
         boolean keepAsking = true;
 
         while (keepAsking) {

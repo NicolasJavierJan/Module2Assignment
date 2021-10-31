@@ -18,8 +18,32 @@ public class User implements Serializable {
         return this.username;
     }
 
+    public void setUsername(String username){
+        this.username = username;
+    }
+
     public String getPassword(){
         return this.password;
+    }
+
+    public void setPassword(String password){
+        this.password = password;
+    }
+
+    public ArrayList<Movie> getFavouriteList() {
+        return favouriteList;
+    }
+
+    public void setFavouriteList(ArrayList<Movie> favouriteList) {
+        this.favouriteList = favouriteList;
+    }
+
+    public ArrayList<String> getHistoryList() {
+        return historyList;
+    }
+
+    public void setHistoryList(ArrayList<String> historyList) {
+        this.historyList = historyList;
     }
 
     public void printInfo(){

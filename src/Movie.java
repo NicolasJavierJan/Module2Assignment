@@ -2,18 +2,12 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 public class Movie implements Serializable {
+
     // Attributes: Name, Year, Actors (list) and roles, etc.
     private String name;
     private int year;
     private ArrayList<String> actors = new ArrayList<>();
     private ArrayList<String> roles = new ArrayList<>();
-
-    /*
-    public Movie(String name, int year){
-        this.name = name;
-        this.year = year;
-    }
-     */
 
     public Movie(String name, int year, ArrayList<String> actors, ArrayList<String> roles){
         this.name = name;
@@ -22,16 +16,32 @@ public class Movie implements Serializable {
         this.roles = roles;
     }
 
-    public void addActors(String name){
-        this.actors.add(name);
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public void addRole(String role){
-        this.roles.add(role);
+    public int getYear() {
+        return year;
     }
 
-    public String getName(){
-        return this.name;
+    public void setYear(int year) {
+        this.year = year;
+    }
+
+    public ArrayList<String> getActors() {
+        return actors;
+    }
+
+    public void setActors(ArrayList<String> actors) {
+        this.actors = actors;
+    }
+
+    public ArrayList<String> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(ArrayList<String> roles) {
+        this.roles = roles;
     }
 
     public void printInfo(){
@@ -41,39 +51,5 @@ public class Movie implements Serializable {
         for (int i = 0; i < actors.size(); i++){
             System.out.println(actors.get(i) + " as " + roles.get(i));
         }
-    }
-
-
-
-    // ******* Kim used this **********
-    // just a movie class
-
-    private String title;
-    private int prodYear;
-
-    // Movie constructor
-    public Movie (String title, int prodYear) {
-        setTitle(title);
-        setProdYear(prodYear);
-    }
-
-    // To string generator
-    public String toString() {
-        return "Title: " + getTitle() + " || "+ " Production year: " + getProdYear();
-    }
-
-    // Setters
-    public void setTitle(String title) {
-        this.title = title;
-    }
-    public void setProdYear(int prodYear) {
-        this.prodYear = prodYear;
-    }
-    // Getters
-    public String getTitle() {
-        return title;
-    }
-    public int getProdYear() {
-        return prodYear;
     }
 }
