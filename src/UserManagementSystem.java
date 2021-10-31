@@ -81,45 +81,21 @@ public class UserManagementSystem {
             System.out.println("Please enter your password:");
             String password = logInUser.nextLine();
 
+            boolean foundUser = false;
+
             for (User user : Main.users){
                 if (username.equalsIgnoreCase(user.getUsername()) && password.equalsIgnoreCase(user.getPassword())){
                     System.out.println("Logging innnnn");
                     keepAsking = false;
+                    foundUser = true;
                 }
             }
 
-            System.out.println("Username and password not valid :( ");
-
-        }
-
-
-
-        /*
-        Scanner LoginUser = new Scanner(System.in);
-        System.out.println("Enter username: ");
-        String usernameLogin = LoginUser.nextLine();
-        System.out.println("Enter password: ");
-        String passwordLogin = LoginUser.nextLine();
-
-
-        boolean keepAsking = true;
-
-        while (keepAsking) {
-            for (int i = 0; i < registerInfo.size(); i++) {
-                if (registerInfo.get(i).getUserName().equals(usernameLogin)
-                        && registerInfo.get(i).getPassword().equals(passwordLogin)) {
-                    System.out.println("logging in");
-                    App.appMainChoices(userList, movieList, movies1);
-                    keepAsking = false;
-                    return true;
-                } else {
-                    System.out.println("Username or password is incorrect, try again");
-                }
-
+            if (foundUser){
+                App.appMainChoices();
+            } else {
+                System.out.println("Username and password not valid :( ");
             }
-            return false;
         }
-        return keepAsking;
-        */
     }
 }

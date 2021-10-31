@@ -19,8 +19,11 @@ public class App {
         }
         return choice;
     }
-/*
+
     public static void appMainChoices() {
+
+        System.out.println("Hi Andrea.");
+        /*
         boolean keepAsking = true;
 
         while (keepAsking) {
@@ -61,8 +64,7 @@ public class App {
             } else {
                 System.out.println("What if you choose one of the options and quit playing with me, pal?");
             }
+            */
+
         }
     }
-    */
-
-}
