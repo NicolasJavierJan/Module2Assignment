@@ -59,8 +59,6 @@ public class UserManagementSystem {
 
         currentUser = newUser;
 
-        App.appMainChoices();
-
     }
 
     public static boolean userLogin() {

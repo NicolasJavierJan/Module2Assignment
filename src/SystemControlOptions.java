@@ -51,7 +51,6 @@ public class SystemControlOptions {
         }
     }
 
-    // SHOULD WORK NOT SURE
     public static void createMovie() {
 
         ArrayList<String> newMovieActors = new ArrayList<>();
@@ -63,10 +62,16 @@ public class SystemControlOptions {
         String title = userInput.nextLine();
 
         // USE SCANNER FOR MOVIE YEAR
-        // TO DO: MAKE IT NUMBER ONLY ( Handle Exception)
-        // TO DO: HANDLE EXCEPTION
-        System.out.println("\nEnter movie release year:");
-        int year = App.userChoice();
+        boolean notNumberEntered = true;
+
+        int year = 1;
+        while (notNumberEntered){
+            System.out.println("\nEnter movie release year:");
+            year = App.userChoice();
+            if (year != 0){
+                notNumberEntered = false;
+            }
+        }
 
         // LOOP FOR ADDING ACTORS AND ROLES
         boolean addActorLoop = true;
@@ -121,70 +126,17 @@ public class SystemControlOptions {
     // SHOULD WORK NOT SURE
     public static void updateMovie() {
 
-        // LOOP FOR REMOVING MOVIE
-        boolean removeMovieLoop = true;
-        while (removeMovieLoop){
-
-        System.out.println(Main.movies +
-        "\n· Please write the title of the movie you want to remove:");
-
-        // CREATE SCANNER FOR MOVIE THAT YOU WANT TO REMOVE
+        System.out.println("Please enter the name of the movie to Update:");
         Scanner userInput = new Scanner(System.in);
-        String userTitle = userInput.nextLine();
+        String userAnswer = userInput.nextLine();
 
-        // FOR EACH LOOP TO CHECK IF THE ARRAYLIST CONTAINS THE MOVIE
-            // This loop will always end with the message "movie not found"
-            // Because you are doing an if else statement with every movie
-            // if the movie is found, great
-            // but if not, it will tell you "movie not found".
-            // and then check the next movie, and again and again
-            // in an arraylist of 1000 movies even if you put the correct title the app will tell you 999 times that it didnt find the movie
-            // we can fix it by creating a boolean "moviefound" or whatever.
-        for (Movie movie : Main.movies){
-
-            if (movie.getName().equalsIgnoreCase(userTitle)){
-
-                // SUCCESS SCENARIO
+        for (Movie movie : Main.movies) {
+            if (movie.getName().equalsIgnoreCase(userAnswer)) {
                 Main.movies.remove(movie);
-                removeMovieLoop = false;
 
-                // LOOP FOR REMOVING ANOTHER MOVIE
-                boolean loopAddAnotherMovie = true;
-                while(loopAddAnotherMovie) {
-
-                    System.out.println("" +
-                            "\nDo you want to add another movie? " +
-                            "\n· Yes" +
-                            "\n· No ");
-
-                    Scanner userInput1 = new Scanner(System.in);
-                    String userAnswer1 = userInput1.nextLine();
-
-                    // ADD ANOTHER MOVIE - ANSWER WRONG
-                    if (!userAnswer1.equalsIgnoreCase("no") && !userAnswer1.equalsIgnoreCase("yes")) {
-                        System.out.println("\n! Please answer with yes or no !");
-                    }
-
-                    // ADD ANOTHER MOVIE - ANSWER NO
-                    if (userAnswer1.equalsIgnoreCase("no")) {
-                        loopAddAnotherMovie =false;
-                        System.out.println("\nOk, here you have your list updated: " + Main.movies + "\n");
-                        menuSystemControlOptions();
-                    }
-
-                    // ADD ANOTHER MOVIE - ANSWER YES
-                    if (userAnswer1.equalsIgnoreCase("yes")) {
-                        loopAddAnotherMovie = true;
-                    }
-                }
-
-            } else {
-                System.out.println("! Movie not found, please try again !");
+                createMovie();
             }
         }
-        }
-
-
     }
 
     // DOESN'T WORK THE FOR EACH LOOP
@@ -202,7 +154,7 @@ public class SystemControlOptions {
 
     //DOESN'T WORK THE FOR EACH LOOP
     public static void displayActors (){
-        System.out.println("Here you can find the movie list: ");
+        System.out.println("Here you can find the Actor list: ");
 
         for (Movie movie : Main.movies){
             System.out.println(movie.getActors());
