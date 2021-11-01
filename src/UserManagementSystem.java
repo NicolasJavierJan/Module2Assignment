@@ -3,9 +3,12 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-// Jasmin - Nico - Done
-
 public class UserManagementSystem {
+
+    // Check on register that USERNAME is not taken
+    // Create a loop so if username or password wrong it goes directly to
+    // asking for username and password again without the choosing.
+
 
     public static User currentUser = null;
 
@@ -53,6 +56,10 @@ public class UserManagementSystem {
         User newUser = new User(username, password, favourite, history);
 
         Main.users.add(newUser);
+
+        currentUser = newUser;
+
+        App.appMainChoices();
 
     }
 
