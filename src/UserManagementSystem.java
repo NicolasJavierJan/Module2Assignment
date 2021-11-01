@@ -26,12 +26,7 @@ public class UserManagementSystem {
 
             // Choices:
             if (choice == 1) {
-                if (userLogin()) {
-                    keepAsking = false;
-                    App.appMainChoices();
-                } else {
-                    System.out.println("Wrong username or password");
-                }
+                userLogin();
             } else if (choice == 2) {
                 userRegister();
             } else {
@@ -57,24 +52,30 @@ public class UserManagementSystem {
 
         Main.users.add(newUser);
 
-        currentUser = newUser;
-
     }
 
-    public static boolean userLogin() {
-        Scanner LoginUser = new Scanner(System.in);
-        System.out.println("Enter username: ");
-        String usernameLogin = LoginUser.nextLine();
-        System.out.println("Enter password: ");
-        String passwordLogin = LoginUser.nextLine();
+    public static void userLogin() {
+        boolean userFound = false;
 
-        for (User user : Main.users) {
-            if (user.getUsername().equalsIgnoreCase(usernameLogin) && user.getPassword().equals(passwordLogin)) {
-                System.out.println("Logging innnn");
-                currentUser = user;
-                return true;
+        while (!userFound) {
+            Scanner LoginUser = new Scanner(System.in);
+            System.out.println("Enter username: ");
+            String usernameLogin = LoginUser.nextLine();
+            System.out.println("Enter password: ");
+            String passwordLogin = LoginUser.nextLine();
+
+            for (User user : Main.users) {
+                if (user.getUsername().equalsIgnoreCase(usernameLogin) && user.getPassword().equals(passwordLogin)) {
+                    System.out.println("Logging innnn");
+                    currentUser = user;
+                    userFound = true;
+                    App.appMainChoices();
+                }
+            }
+
+            if (!userFound){
+                System.out.println("Wrong username and password");
             }
         }
-        return false;
     }
 }
