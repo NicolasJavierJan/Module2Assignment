@@ -11,7 +11,7 @@ public class UserControlOptions {
 
     public static void start()  {
 
-        System.out.println("\n--- User Control Options ---\n");
+        System.out.println("\n--- User Control Options ---");
 
         menuUserControlOptions();
     }
@@ -22,9 +22,9 @@ public class UserControlOptions {
     public static void menuUserControlOptions() {
         boolean keepAsking = true;
         while (keepAsking){
-            System.out.println("· 1. Access Favourites List" +
-                    "\n· 2. Access Watched list" +
-                    "\n· 9. Go back to home page");
+            System.out.println("\n· 1. Access Favourites List" +
+                    "\n· 2. Access Watched List" +
+                    "\n· 9. Go back to Main Menu");
 
             int userAnswer = App.userChoice();
             if (userAnswer == 1) {
@@ -43,8 +43,8 @@ public class UserControlOptions {
     // MENU FAV LIST - 1.ADD MOVIE - 2.SEE LIST - 3. GO BACK
     public static void menuFavList(){
         System.out.println(
-                "· 1. Add movies to your favourites list" +
-                        "\n· 2. See your favourites list" +
+                "· 1. Add movies to Favourites list" +
+                        "\n· 2. See Favourites list" +
                         "\n· 9. Go back");
     }
 
@@ -111,7 +111,7 @@ public class UserControlOptions {
                             if (userAnswer1.equalsIgnoreCase("no")) {
                                 loopChoice1 = false;
                                 loopAddAnotherMovie =false;
-                                System.out.println("\nOk, here you have your list updated: " + UserManagementSystem.currentUser.getFavouriteList() + "\n");
+                                System.out.println("\nOk, here you have your list updated: " + UserManagementSystem.currentUser.getFavouriteList());
                                 menuUserControlOptions();
                             }
 
@@ -149,9 +149,9 @@ public class UserControlOptions {
     // MENU WATCHED LIST
     public static void menuWatchedList(){
         System.out.println(
-                "· 1. add movies to your watched list" +
-                        "\n· 2. to see your watched list" +
-                        "\n· 9. to go back");
+                "· 1. Add movies to Watched list" +
+                        "\n· 2. See Watched list" +
+                        "\n· 9. Go Back");
     }
 
     // WATCHED LIST
@@ -196,7 +196,7 @@ public class UserControlOptions {
                                 UserManagementSystem.currentUser.getHistoryList().add(found);
                                 System.out.println("\nMovie added to the list!");
                             } else {
-                                System.out.println("Movie not found");
+                                System.out.println("\n! Movie not found !");
                             }
                         }
 
@@ -206,7 +206,8 @@ public class UserControlOptions {
 
                             System.out.println("" +
                                     "\nDo you want to add another movie? " +
-                                    "\n· The answer should be yes or no:");
+                                    "\n· Yes" +
+                                    "\n· No");
                             Scanner userInput1 = new Scanner(System.in);
                             String userAnswer1 = userInput1.nextLine();
 

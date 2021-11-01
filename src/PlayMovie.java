@@ -7,11 +7,13 @@ public class PlayMovie {
     private static ArrayList<Movie> listOfMovies = new ArrayList<>();
 
     public static void start() {
+
+        System.out.println("\n--- Play Movie ---");
         playMovie();
     }
 
     public static void playMovie()  {
-        System.out.println("· Which movie would you like to see?");
+        System.out.println("\n· Which movie would you like to see?");
 
         Scanner userInput = new Scanner(System.in);
         String userResponse = userInput.nextLine();
@@ -26,9 +28,8 @@ public class PlayMovie {
 
         if (movieFound != null){
             movieFound.printInfo();
-            System.out.println();
-            System.out.println("· 1. Play another movie");
-            System.out.println("· 9. Go back");
+            System.out.println("\n· 1. Play another movie" +
+                    "\n· 9. Go back");
             boolean keepAsking = true;
             while (keepAsking) {
                 Scanner answer = new Scanner(System.in);
@@ -42,9 +43,9 @@ public class PlayMovie {
                 }
             }
         } else {
-            System.out.println("! Cannot find that movie, pal. Sorry ☺ !");
-            System.out.println("· 1. Play another movie");
-            System.out.println("· 9. Go back");
+            System.out.println("\n! Cannot find that movie, pal. Sorry ☺ !");
+            System.out.println("\n· 1. Play another movie" +
+                    "\n· 9. Go Back");
             boolean keepAsking = true;
             while (keepAsking) {
                 Scanner answer = new Scanner(System.in);

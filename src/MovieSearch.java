@@ -8,7 +8,7 @@ public class MovieSearch {
 
     public static void start() {
 
-        System.out.println("--- Search Movie ---");
+        System.out.println("\n--- Search Movie ---");
         movieSearchMenu();
     }
 
@@ -16,7 +16,7 @@ public class MovieSearch {
         boolean keepAsking = true;
 
         while (keepAsking) {
-            System.out.println("· 1. Search movie by title" +
+            System.out.println("\n· 1. Search movie by title" +
                     "\n· 2. Search movie by year" +
                     "\n· 9. Go Back");
 
@@ -39,7 +39,7 @@ public class MovieSearch {
 
     public static void searchMovie()  {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Search for a title");
+        System.out.println("· Search for a title");
         boolean found = false;
         String searchTitle = sc.nextLine();
         for (Movie i : Main.movies) {
@@ -49,7 +49,7 @@ public class MovieSearch {
             }
         }
         if(found != true) {
-            System.out.println("! Title not found !" +
+            System.out.println("\n! Title not found !\n" +
                     "\n· 1. New search" +
                     "\n· 9. Go back");
             int one = App.userChoice();
@@ -70,7 +70,7 @@ public class MovieSearch {
 
         for(Movie i : Main.movies) {
             if(i.getYear() == searchYear){
-                System.out.println(i.getName());
+                System.out.println("\n" + i.getName());
                 found = true;
             }
         }

@@ -19,10 +19,10 @@ public class SystemControlOptions {
         while (keepAsking) {
 
             System.out.println("· 1. Create movie and add actors" +
-                    "\n· 2. Update movie and add actors" +
-                    "\n· 3. Display movies" +
-                    "\n· 4. Display actors" +
-                    "\n· 9. Go back to main menu");
+                    "\n· 2. Update Movie and add Actors" +
+                    "\n· 3. Display Movies" +
+                    "\n· 4. Display Actors" +
+                    "\n· 9. Go back to Main Menu");
             int choice = App.userChoice();
 
             if (choice == 1) {
@@ -58,7 +58,7 @@ public class SystemControlOptions {
 
         // CREATE A SCANNER FOR MOVIE TITLE
         Scanner userInput = new Scanner(System.in);
-        System.out.println("\nEnter movie title: ");
+        System.out.println("\n· Enter movie title: ");
         String title = userInput.nextLine();
 
         // USE SCANNER FOR MOVIE YEAR
@@ -66,7 +66,7 @@ public class SystemControlOptions {
 
         int year = 1;
         while (notNumberEntered){
-            System.out.println("\nEnter movie release year:");
+            System.out.println("\n· Enter movie release year:");
             year = App.userChoice();
             if (year != 0){
                 notNumberEntered = false;
@@ -78,12 +78,12 @@ public class SystemControlOptions {
         while (addActorLoop) {
 
             //ADDING ACTOR
-            System.out.println("\nEnter actor name:");
+            System.out.println("\n· Enter actor name:");
             String actor = userInput.nextLine();
             newMovieActors.add(actor);
 
             //ADDING ROLE
-            System.out.println("\nEnter actor's role:");
+            System.out.println("\n· Enter actor's role:");
             String actorRole = userInput.nextLine();
             newActorRoles.add(actorRole);
 
@@ -106,10 +106,10 @@ public class SystemControlOptions {
                 // ADD MOVIE IN THE ARRAYLIST OF MOVIES CREATING A NEW MOVIE OBJECT
                 Main.movies.add(new Movie(title, year, newMovieActors, newActorRoles));
 
-                System.out.println("\nOk, here you have the movie you have added:  " +
-                        "\nTitle: " + title + " " + "( " + year + " )" + "\n" +
-                        newMovieActors + "\n" +
-                        newActorRoles + "\n");
+                System.out.println("\nOk, here you have the movie you have added:\n" +
+                        "\nTitle:   " + title + " " + "( " + year + " )" + "\n" +
+                        "Actors:  " + newMovieActors + "\n" +
+                        "Role:    " + newActorRoles + "\n");
 
                 System.out.println("What do you want to do now?");
                 menuSystemControlOptions();
@@ -126,7 +126,7 @@ public class SystemControlOptions {
     // SHOULD WORK NOT SURE
     public static void updateMovie() {
 
-        System.out.println("Please enter the name of the movie to Update:");
+        System.out.println("\n· Please enter the name of the movie to Update:");
         Scanner userInput = new Scanner(System.in);
         String userAnswer = userInput.nextLine();
 
@@ -142,7 +142,7 @@ public class SystemControlOptions {
     // DOESN'T WORK THE FOR EACH LOOP
     public static void displayMovie(){
 
-        System.out.println("Here you can find the movie list: ");
+        System.out.println("\nHere you can find the movie list: \n");
 
         for (Movie movie : Main.movies) {
             System.out.println(movie.toString());
@@ -154,7 +154,7 @@ public class SystemControlOptions {
 
     //DOESN'T WORK THE FOR EACH LOOP
     public static void displayActors (){
-        System.out.println("Here you can find the Actor list: ");
+        System.out.println("Here you can find the Actor list:\n ");
 
         for (Movie movie : Main.movies){
             System.out.println(movie.getActors());

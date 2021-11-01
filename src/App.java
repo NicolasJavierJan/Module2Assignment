@@ -27,8 +27,9 @@ public class App {
         boolean keepAsking = true;
 
         while (keepAsking) {
-            System.out.println("· 1. System Control Options - Create, Update, Delete, Display Movies or Display Actors" +
-                    "\n· 2. User Control Options - Add movies to your favourite list" +
+            System.out.println("\n--- Main Menu ---\n" +
+                    "\n· 1. System Control Options - Create, Update, Delete, Display Movies or Display Actors" +
+                    "\n· 2. User Control Options - Add movies to your Favourite/Watched list" +
                     "\n· 3. Search movie" +
                     "\n· 4. See Statistics" +
                     "\n· 5. Play movie" +

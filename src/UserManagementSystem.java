@@ -17,10 +17,10 @@ public class UserManagementSystem {
 
         while (keepAsking) {
             System.out.println("Are you an existing user or do you want to register?");
-            System.out.println("Press the number for the desired option and press enter.");
+            System.out.println("Press the number for the desired option and press enter");
             System.out.println();
-            System.out.println("1. Log In.");
-            System.out.println("2. Register.");
+            System.out.println("· 1. Log In");
+            System.out.println("· 2. Register");
 
             int choice = App.userChoice();
 
@@ -33,7 +33,7 @@ public class UserManagementSystem {
                 keepAsking = false;
             } else {
                 System.out.println();
-                System.out.println("Please choose a number from the list.");
+                System.out.println("! Please choose a number from the list !");
                 System.out.println();
             }
         }
@@ -41,9 +41,9 @@ public class UserManagementSystem {
 
     public static void userRegister() {
         Scanner registerUser = new Scanner(System.in);
-        System.out.println("Enter username: ");
+        System.out.println("\n· Enter username: ");
         String username = registerUser.nextLine();
-        System.out.println("Enter password: ");
+        System.out.println("\n· Enter password: ");
         String password = registerUser.nextLine();
         System.out.println("Registering");
 
@@ -65,14 +65,14 @@ public class UserManagementSystem {
 
         while (!userFound) {
             Scanner LoginUser = new Scanner(System.in);
-            System.out.println("Enter username: ");
+            System.out.println("\n· Enter username: ");
             String usernameLogin = LoginUser.nextLine();
-            System.out.println("Enter password: ");
+            System.out.println("\n· Enter password: ");
             String passwordLogin = LoginUser.nextLine();
 
             for (User user : Main.users) {
                 if (user.getUsername().equalsIgnoreCase(usernameLogin) && user.getPassword().equals(passwordLogin)) {
-                    System.out.println("Logging innnn");
+                    System.out.println("\nLogging in");
                     currentUser = user;
                     userFound = true;
                     App.appMainChoices();
@@ -80,7 +80,7 @@ public class UserManagementSystem {
             }
 
             if (!userFound){
-                System.out.println("Wrong username and password");
+                System.out.println("! Wrong username and password !");
             }
         }
     }
