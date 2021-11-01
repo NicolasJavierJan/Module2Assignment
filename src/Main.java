@@ -12,7 +12,7 @@ public class Main {
     public static ArrayList<Movie> movies = new ArrayList<>();
     public static ArrayList<User> users = new ArrayList<>();
 
-    public static void main(String[] args) throws FileNotFoundException {
+    public static void main(String[] args) {
 /*
         // This is ONLY for the first time. Delete later (or comment out)
 

@@ -7,23 +7,6 @@ public class PlayMovie {
     private static ArrayList<Movie> listOfMovies = new ArrayList<>();
 
     public static void start() {
-        // TODO
-        // Try to deserialize the ArrayList of Movies.
-        try {
-            FileInputStream fileIn = new FileInputStream("src/Movies.ser");
-            ObjectInputStream in = new ObjectInputStream(fileIn);
-
-            listOfMovies = (ArrayList) in.readObject();
-
-            in.close();
-            fileIn.close();
-
-        } catch (IOException e){
-            e.printStackTrace();
-        } catch (ClassNotFoundException c){
-            c.printStackTrace();
-        }
-
         playMovie();
     }
 
@@ -35,7 +18,7 @@ public class PlayMovie {
 
         Movie movieFound =  null;
 
-        for (Movie movie : listOfMovies){
+        for (Movie movie : Main.movies){
             if (movie.getName().equalsIgnoreCase(userResponse)){
                 movieFound = movie;
             }
