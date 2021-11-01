@@ -23,15 +23,12 @@ public class MovieSearch {
             int choice = App.userChoice();
 
             if (choice == 1) {
-                // Go to CREATE MOVIE
                 MovieSearch.searchMovie();
                 keepAsking = false;
             } else if (choice == 2) {
-                // Go to UPDATE MOVIE
                 MovieSearch.searchMovieYear();
                 keepAsking = false;
             } else if (choice == 9) {
-                // Go to UPDATE MOVIE
                 App.appMainChoices();
                 keepAsking = false;
             } else {
@@ -47,7 +44,7 @@ public class MovieSearch {
         String searchTitle = sc.nextLine();
         for (Movie i : Main.movies) {
             if (i.getName().contains(searchTitle)) {
-                System.out.println(i);
+                System.out.println(i.getName());
                 found = true;
             }
         }
@@ -73,7 +70,7 @@ public class MovieSearch {
         int searchYear = sc.nextInt();
         for(Movie i : Main.movies) {
             if(i.getYear() == searchYear){
-                System.out.println(i);
+                System.out.println(i.getName());
                 found = true;
             }
         }

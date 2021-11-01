@@ -27,8 +27,10 @@ public class UserManagementSystem {
             // Choices:
             if (choice == 1) {
                 userLogin();
+                keepAsking = false;
             } else if (choice == 2) {
                 userRegister();
+                keepAsking = false;
             } else {
                 System.out.println();
                 System.out.println("Please choose a number from the list.");
@@ -51,6 +53,10 @@ public class UserManagementSystem {
         User newUser = new User(username, password, favourite, history);
 
         Main.users.add(newUser);
+
+        currentUser = newUser;
+
+        App.appMainChoices();
 
     }
 
