@@ -73,12 +73,20 @@ public class UserControlOptions {
                         Scanner userInput = new Scanner(System.in);
                         String userFilm = userInput.nextLine();
 
+                        Movie found = null;
+
+                        for (Movie movie : Main.movies){
+                            if (userFilm.equalsIgnoreCase(movie.getName())){
+                                found = movie;
+                            }
+                        }
+
                         // CHECK FOR EQUALITY
-                        if (favouriteList.contains(userFilm)){
-                            System.out.println("\nyou already added this movie! " + favouriteList + "\nTry again with a different title\n");
+                        if (UserManagementSystem.currentUser.getFavouriteList().contains(found)){
+                            System.out.println("\nyou already added this movie! " + UserManagementSystem.currentUser.getFavouriteList() + "\nTry again with a different title\n");
                         } else {
                             loopChoice1 = false;
-                            addFavouriteList(userFilm);
+                            UserManagementSystem.currentUser.getFavouriteList().add((found));
                             System.out.println("\nMovie added to the list!");
                         }
 
@@ -103,7 +111,7 @@ public class UserControlOptions {
                             if (userAnswer1.equalsIgnoreCase("no")) {
                                 loopChoice1 = false;
                                 loopAddAnotherMovie =false;
-                                System.out.println("\nOk, here you have your list updated: " + favouriteList + "\n");
+                                System.out.println("\nOk, here you have your list updated: " + UserManagementSystem.currentUser.getFavouriteList() + "\n");
                                 menuUserControlOptions();
                             }
 
@@ -118,11 +126,11 @@ public class UserControlOptions {
                 } else if (choice == 2) {
                     loopMenuFavList = false;
                     loopFromStart = false;
-                    if (favouriteList.isEmpty()){
+                    if (UserManagementSystem.currentUser.getFavouriteList().isEmpty()){
                         System.out.println("\nYour list is empty!" +
                                 "\nFirst add movies in the list and come back later :)" + "\n");
-                    } else if (!favouriteList.isEmpty()){
-                        System.out.println("List: " + favouriteList);
+                    } else {
+                        System.out.println("List: " + UserManagementSystem.currentUser.getFavouriteList());
                     }
 
                     //menuUserControlOptions();
@@ -148,7 +156,7 @@ public class UserControlOptions {
 
     // WATCHED LIST
     public static void goToWatchedList () {
-        System.out.println("\n--- Watched List ---\n" );
+        System.out.println("\n--- Watched List ---\n");
         boolean loopFromStart = true;
         while (loopFromStart) {
 
@@ -171,18 +179,30 @@ public class UserControlOptions {
                         Scanner userInput = new Scanner(System.in);
                         String userFilm = userInput.nextLine();
 
+                        String found = null;
+
+                        for (Movie movie : Main.movies) {
+                            if (userFilm.equalsIgnoreCase(movie.getName())) {
+                                found = movie.getName();
+                            }
+                        }
+
                         // CHECK FOR EQUALITY
-                        if (watchedList.contains(userFilm)){
-                            System.out.println("\nyou already added this movie! " + watchedList + "\nTry again with a different title");
+                        if (UserManagementSystem.currentUser.getHistoryList().contains(found)) {
+                            System.out.println("\nyou already added this movie! " + UserManagementSystem.currentUser.getHistoryList() + "\nTry again with a different title");
                         } else {
                             loopChoice1 = false;
-                            addWatchedList(userFilm);
-                            System.out.println("\nMovie added to the list!");
+                            if (found != null) {
+                                UserManagementSystem.currentUser.getHistoryList().add(found);
+                                System.out.println("\nMovie added to the list!");
+                            } else {
+                                System.out.println("Movie not found");
+                            }
                         }
 
                         // IF TO ADD ANOTHER MOVIE
                         boolean loopAddAnotherMovie = true;
-                        while(loopAddAnotherMovie) {
+                        while (loopAddAnotherMovie) {
 
                             System.out.println("" +
                                     "\nDo you want to add another movie? " +
@@ -199,8 +219,8 @@ public class UserControlOptions {
                             // ADD ANOTHER MOVIE - ANSWER NO
                             if (userAnswer1.equalsIgnoreCase("no")) {
                                 loopChoice1 = false;
-                                loopAddAnotherMovie =false;
-                                System.out.println("\nOk, here you have your list updated: " + watchedList + "\n");
+                                loopAddAnotherMovie = false;
+                                System.out.println("\nOk, here you have your list updated: " + UserManagementSystem.currentUser.getHistoryList() + "\n");
                                 menuUserControlOptions();
                             }
 
@@ -216,33 +236,21 @@ public class UserControlOptions {
                 } else if (choice == 2) {
                     loopMenuFavList = false;
                     loopFromStart = false;
-                    if (watchedList.isEmpty()){
+                    if (UserManagementSystem.currentUser.getHistoryList().isEmpty()) {
                         System.out.println("\nYour list is empty!" +
                                 "\nFirst add movies in the list and come back later :)" + "\n");
-                    } else if (!watchedList.isEmpty()){
-                        System.out.println("List: " + watchedList);
+                    } else {
+                        System.out.println("List: " + UserManagementSystem.currentUser.getHistoryList());
                     }
                     loopMenuFavList = true;
 
                     // WATCHED LIST CHOICE 3 - GO TO USER OPTIONS
-                } else if (choice == 9){
+                } else if (choice == 9) {
                     loopMenuFavList = false;
                     loopFromStart = false;
                     menuUserControlOptions();
                 }
             }
         }
-    }
-
-    // ARRAYLIST FOR FAVOURITE
-    public static ArrayList<String> favouriteList = new ArrayList<>();
-    public static void addFavouriteList(String movie) {
-        favouriteList.add(movie);
-    }
-
-    // ARRAYLIST FOR WATCHED
-    public static ArrayList<String> watchedList = new ArrayList<>();
-    public static void addWatchedList(String movie) {
-        watchedList.add(movie);
     }
 }

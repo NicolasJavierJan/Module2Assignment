@@ -58,4 +58,9 @@ public class Movie implements Serializable {
         }
     }
 
+    @Override
+    public String toString(){
+        return "Title: " + this.getName() + ", Year: ( " + this.getYear() + " ).";
+    }
+
 }

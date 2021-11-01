@@ -3,8 +3,6 @@ import java.util.ArrayList;
 
 //  Message for Username or Password, when not found
 // Serialize Users.
-// Create Serializing and Deserializing methods at the beginning of the Main method
-// Create public arrayLists that can go for every person.
 // Do the SEE STATISTICS
 
 public class Main {

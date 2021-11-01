@@ -145,7 +145,7 @@ public class SystemControlOptions {
         System.out.println("Here you can find the movie list: ");
 
         for (Movie movie : Main.movies) {
-            System.out.println(movie.getName());
+            System.out.println(movie.toString());
         }
 
         System.out.println("\nWhat do you want to do now ?");

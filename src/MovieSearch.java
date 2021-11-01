@@ -44,7 +44,7 @@ public class MovieSearch {
         String searchTitle = sc.nextLine();
         for (Movie i : Main.movies) {
             if (i.getName().contains(searchTitle)) {
-                System.out.println(i.getName());
+                System.out.println(i.getName()  );
                 found = true;
             }
         }
@@ -54,7 +54,7 @@ public class MovieSearch {
                     "\n· 9. Go back");
             int one = App.userChoice();
             if (one == 1) {
-                searchMovieYear();
+                searchMovie();
             } else if (one == 9) {
                 MovieSearch.start();
             }
@@ -64,27 +64,39 @@ public class MovieSearch {
 
     // Searches for the movie year
     public static void searchMovieYear()  {
-        Scanner sc = new Scanner(System.in);
         System.out.println("· Search for a year: ");
         boolean found = false;
-        int searchYear = sc.nextInt();
+        int searchYear = App.userChoice();
+
         for(Movie i : Main.movies) {
             if(i.getYear() == searchYear){
                 System.out.println(i.getName());
                 found = true;
             }
         }
-        if(found != true) {
-            System.out.println("! No movies for this year !" +
-                    "\n· 1. New search" +
-                    "\n· 9. Go back");
-            int one = App.userChoice();
-            if (one == 1) {
-                searchMovieYear();
-            } else if (one == 9) {
-                MovieSearch.start();
-            }
 
+
+        if(found != true) {
+            if (searchYear == 0){
+                System.out.println("· 1. New search" +
+                        "\n· 9. Go back");
+                int one = App.userChoice();
+                if (one == 1) {
+                    searchMovieYear();
+                } else if (one == 9) {
+                    MovieSearch.start();
+                }
+            } else {
+                System.out.println("! No movies for this year !" +
+                        "\n· 1. New search" +
+                        "\n· 9. Go back");
+                int one = App.userChoice();
+                if (one == 1) {
+                    searchMovieYear();
+                } else if (one == 9) {
+                    MovieSearch.start();
+                }
+            }
         }
     }
 

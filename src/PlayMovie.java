@@ -26,6 +26,21 @@ public class PlayMovie {
 
         if (movieFound != null){
             movieFound.printInfo();
+            System.out.println();
+            System.out.println("· 1. Play another movie");
+            System.out.println("· 9. Go back");
+            boolean keepAsking = true;
+            while (keepAsking) {
+                Scanner answer = new Scanner(System.in);
+                int oneOrTwo = answer.nextInt();
+                if (oneOrTwo == 1) {
+                    playMovie();
+                } else if (oneOrTwo == 9) {
+                    App.appMainChoices();
+                } else {
+                    System.out.println("! Please write a number and choose one of the following options !");
+                }
+            }
         } else {
             System.out.println("! Cannot find that movie, pal. Sorry ☺ !");
             System.out.println("· 1. Play another movie");
