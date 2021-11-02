@@ -16,7 +16,7 @@ public class MovieSearch {
 
         while (keepAsking) {
             System.out.println("\n· 1. Search movie by title" +
-                    "\n· 2. Search movie by year" +
+                    "\n· 2. Search movie by release year" +
                     "\n· 9. Go Back to Main Menu");
 
             int choice = App.userChoice();
@@ -32,7 +32,7 @@ public class MovieSearch {
                 App.appMainChoices();
                 keepAsking = false;
             } else {
-                System.out.println("! Please write a number and choose one of the following options !\n");
+                System.out.println("! Please write a number to choose one of the following options !\n");
             }
         }
     }

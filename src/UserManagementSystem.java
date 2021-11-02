@@ -42,9 +42,9 @@ public class UserManagementSystem {
         boolean usernameFound = true;
         while (usernameFound) {
                 Scanner registerUser = new Scanner(System.in);
-            System.out.println("\n· Enter username: ");
+            System.out.println("\n· Enter a username: ");
             String username = registerUser.nextLine();
-            System.out.println("\n· Enter password: ");
+            System.out.println("\n· Enter a password: ");
             String password = registerUser.nextLine();
 
             ArrayList<Movie> favourite = new ArrayList<>();
@@ -55,7 +55,7 @@ public class UserManagementSystem {
             usernameFound = false;
             for (User user : Main.users) {
                 if (user.getUsername().equalsIgnoreCase(username)) {
-                    System.out.println("Username is already taken, please choose another one");
+                    System.out.println("Username is already taken, please choose a different one");
                     usernameFound = true;
                 }
 
@@ -74,9 +74,9 @@ public class UserManagementSystem {
 
         while (!userFound) {
             Scanner LoginUser = new Scanner(System.in);
-            System.out.println("\n· Enter username: ");
+            System.out.println("\n· Enter your username: ");
             String usernameLogin = LoginUser.nextLine();
-            System.out.println("\n· Enter password: ");
+            System.out.println("\n· Enter your password: ");
             String passwordLogin = LoginUser.nextLine();
 
             for (User user : Main.users) {
@@ -89,12 +89,13 @@ public class UserManagementSystem {
             }
 
             if (!userFound){
-                System.out.println("! Wrong username and password !");
-                System.out.println("Would you like to try again? Press 'n' for no, every other option let's you try again ☺");
+                System.out.println("! Wrong username or password !");
+                System.out.println("write 'no' to go back to the main menu");
+                System.out.println("write 'yes' to try again");
                 String answer = LoginUser.nextLine();
 
-                if (answer.equalsIgnoreCase("n")){
-                    System.out.println("I'll redirect you to the Register and Login page ☺");
+                if (answer.equalsIgnoreCase("no")){
+                    //System.out.println("I'll redirect you to the Register and Login page ☺");
                     userFound = true;
                     UserManagementSystem.start();
                 }

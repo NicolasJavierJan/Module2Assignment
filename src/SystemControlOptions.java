@@ -44,7 +44,7 @@ public class SystemControlOptions {
                 App.appMainChoices();
                 keepAsking = false;
             } else {
-                System.out.println("! Please write a number and choose one of the following options !\n");
+                System.out.println("! Please write a number to choose one of the following options !\n");
             }
         }
     }

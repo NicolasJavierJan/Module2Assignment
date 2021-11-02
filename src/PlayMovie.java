@@ -38,11 +38,11 @@ public class PlayMovie {
                     SeeStatistics.enteredMainMenuCount();
                     App.appMainChoices();
                 } else {
-                    System.out.println("! Please write a number and choose one of the following options !");
+                    System.out.println("! Please write a number to choose one of the following options !");
                 }
             }
         } else {
-            System.out.println("\n! Cannot find that movie, pal. Sorry ☺ !");
+            System.out.println("\n! Movie not found !");
             System.out.println("\n· 1. Play another movie" +
                     "\n· 9. Go Back to Main Menu");
             boolean keepAsking = true;
@@ -55,7 +55,7 @@ public class PlayMovie {
                     SeeStatistics.enteredMainMenuCount();
                     App.appMainChoices();
                 } else {
-                    System.out.println("! Please write a number and choose one of the following options !");
+                    System.out.println("! Please write a number to choose one of the following options !");
                 }
             }
         playMovie();

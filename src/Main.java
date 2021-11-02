@@ -47,7 +47,13 @@ public class Main {
             c.printStackTrace();
         }
 
-        System.out.println("\n--- WELCOME TO MOVIE TIME ---");
+        System.out.println("\n--- WELCOME TO ---\n");
+        System.out.println(".__   __.   ______   .___________. _______  __       __  ___   ___ \n" +
+                "|  \\ |  |  /  __  \\  |           ||   ____||  |     |  | \\  \\ /  / \n" +
+                "|   \\|  | |  |  |  | `---|  |----`|  |__   |  |     |  |  \\  V  /  \n" +
+                "|  . `  | |  |  |  |     |  |     |   __|  |  |     |  |   >   <   \n" +
+                "|  |\\   | |  `--'  |     |  |     |  |     |  `----.|  |  /  .  \\  \n" +
+                "|__| \\__|  \\______/      |__|     |__|     |_______||__| /__/ \\__\\");
         System.out.println();
         // First of all, going to Register/Login.
         UserManagementSystem.start();

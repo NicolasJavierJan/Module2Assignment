@@ -23,12 +23,12 @@ public class SeeStatistics {
                 "\nMovie Updated: " + movieUpdated +
                 "\nMovie added to favourites list: " + movieFavouriteList +
                 "\nMovie added to watched list: " + movieWatchedList +
-                "\nNumber of time in System Control Options: " + enteredSystemControlOptions +
-                "\nNumber of time in User Control Options: " + enteredUserControlOptions +
-                "\nNumber of time in Search Movie: " + enteredMovieSearch +
-                "\nNumber of time in See Statistics: " + enteredStatistics +
-                "\nNumber of time in Play Movie: " + enteredPlayMovie +
-                "\nNumber of time in Main Menu: " + enteredMainMenu);
+                "\nNumber of times in System Control Options: " + enteredSystemControlOptions +
+                "\nNumber of times in User Control Options: " + enteredUserControlOptions +
+                "\nNumber of times in Search Movie: " + enteredMovieSearch +
+                "\nNumber of times in See Statistics: " + enteredStatistics +
+                "\nNumber of times in Play Movie: " + enteredPlayMovie +
+                "\nNumber of times in Main Menu: " + enteredMainMenu);
 
         App.appMainChoices();
 
