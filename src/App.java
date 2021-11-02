@@ -5,7 +5,6 @@ import java.util.Scanner;
 
 public class App {
 
-
     public static int userChoice() {
         // Creates a Scanner, waits for the User Choice and returns the choice.
         Scanner userInput = new Scanner(System.in);

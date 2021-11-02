@@ -9,7 +9,6 @@ public class UserManagementSystem {
     // Create a loop so if username or password wrong it goes directly to
     // asking for username and password again without the choosing.
 
-
     public static User currentUser = null;
 
     public static void start() {
@@ -40,24 +39,34 @@ public class UserManagementSystem {
     }
 
     public static void userRegister() {
-        Scanner registerUser = new Scanner(System.in);
-        System.out.println("\n· Enter username: ");
-        String username = registerUser.nextLine();
-        System.out.println("\n· Enter password: ");
-        String password = registerUser.nextLine();
-        System.out.println("Registering");
+        boolean usernameFound = true;
+        while (usernameFound) {
+                Scanner registerUser = new Scanner(System.in);
+            System.out.println("\n· Enter username: ");
+            String username = registerUser.nextLine();
+            System.out.println("\n· Enter password: ");
+            String password = registerUser.nextLine();
 
-        ArrayList<Movie> favourite = new ArrayList<>();
-        ArrayList<String> history = new ArrayList<>();
+            ArrayList<Movie> favourite = new ArrayList<>();
+            ArrayList<String> history = new ArrayList<>();
 
-        User newUser = new User(username, password, favourite, history);
+            User newUser = new User(username, password, favourite, history);
 
-        Main.users.add(newUser);
+            usernameFound = false;
+            for (User user : Main.users) {
+                if (user.getUsername().equalsIgnoreCase(username)) {
+                    System.out.println("Username is already taken, please choose another one");
+                    usernameFound = true;
+                }
 
-        currentUser = newUser;
-
-        App.appMainChoices();
-
+            }
+            if (!usernameFound) {
+                System.out.println("You are now registered \n");
+                System.out.println("Please Log in with your new account");
+                Main.users.add(newUser);
+                userLogin();
+            }
+        }
     }
 
     public static void userLogin() {

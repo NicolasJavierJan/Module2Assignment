@@ -5,14 +5,13 @@ import java.util.Scanner;
 
 public class MovieSearch {
 
-
     public static void start() {
 
         System.out.println("\n--- Search Movie ---");
         movieSearchMenu();
     }
 
-    private static void movieSearchMenu() {
+    public static void movieSearchMenu() {
         boolean keepAsking = true;
 
         while (keepAsking) {

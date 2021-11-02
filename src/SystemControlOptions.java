@@ -7,11 +7,8 @@ import java.util.Scanner;
 public class SystemControlOptions {
 
     public static void start()  {
-
         System.out.println("\n--- System Control Options ---\n");
         menuSystemControlOptions();
-
-
     }
 
     public static void menuSystemControlOptions(){

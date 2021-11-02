@@ -7,9 +7,7 @@ import java.util.*;
 
 public class UserControlOptions {
 
-
     public static void start()  {
-
         System.out.println("\n--- User Control Options ---");
 
         menuUserControlOptions();
