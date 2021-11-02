@@ -47,6 +47,7 @@ public class MovieSearch {
             if (i.getName().contains(searchTitle)) {
                 System.out.println(i.getName()  );
                 found = true;
+                movieSearchMenu();
             }
         }
         if(found != true) {
@@ -73,6 +74,7 @@ public class MovieSearch {
             if(i.getYear() == searchYear){
                 System.out.println("\n" + i.getName());
                 found = true;
+                movieSearchMenu();
             }
         }
 

@@ -3,7 +3,6 @@ import java.util.ArrayList;
 
 //  Message for Username or Password, when not found
 // Serialize Users.
-// Do the SEE STATISTICS
 
 public class Main {
 
@@ -59,17 +58,17 @@ public class Main {
     // Method for creating ONE EXAMPLE MOVIE, ONLY FIRST TIME. IT CAN BE DELETED LATER.
     public static ArrayList<Movie> addingMovie(){
         ArrayList<String> actors = new ArrayList<>();
-        actors.add("Nico");
-        actors.add("Andrea");
-        actors.add("Jasmin");
+        actors.add("Tobey Maguire");
+        actors.add("Kirsten Dunst");
+        actors.add("Willem Defoe");
 
         ArrayList<String> roles = new ArrayList<>();
-        roles.add("Example 1");
-        roles.add("Example 2");
-        roles.add("Example 3");
+        roles.add("Peter Parker / Spiderman");
+        roles.add("Mary Jane Watson");
+        roles.add("Norman Osborn / Green Goblin");
 
         ArrayList<Movie> movies = new ArrayList<>();
-        movies.add(new Movie("Movie 1", 2021, actors, roles));
+        movies.add(new Movie("Spiderman", 2002, actors, roles));
 
         return movies;
     }

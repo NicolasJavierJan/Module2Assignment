@@ -132,14 +132,22 @@ public class SystemControlOptions {
         Scanner userInput = new Scanner(System.in);
         String userAnswer = userInput.nextLine();
 
+        boolean movieFound = false;
+
         for (Movie movie : Main.movies) {
             if (movie.getName().equalsIgnoreCase(userAnswer)) {
+                movieFound = true;
                 Main.movies.remove(movie);
 
                 SeeStatistics.movieUpdatedCount();
                 System.out.println("\nMovie found!");
                 createMovie();
             }
+        }
+
+        if (!movieFound){
+            System.out.println("Movie not found.");
+            updateMovie();
         }
     }
 

@@ -4,8 +4,6 @@ import java.util.Scanner;
 
 public class PlayMovie {
 
-    private static ArrayList<Movie> listOfMovies = new ArrayList<>();
-
     public static void start() {
 
         System.out.println("\n--- Play Movie ---");

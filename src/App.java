@@ -13,9 +13,7 @@ public class App {
         try {
             choice = userInput.nextInt();
         } catch (Exception InputMismatchException) {
-            System.out.println();
-            System.out.println("! Please enter a number !");
-            System.out.println();
+
         }
         return choice;
     }

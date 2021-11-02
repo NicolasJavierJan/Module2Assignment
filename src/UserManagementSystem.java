@@ -81,6 +81,14 @@ public class UserManagementSystem {
 
             if (!userFound){
                 System.out.println("! Wrong username and password !");
+                System.out.println("Would you like to try again? Press 'n' for no, every other option let's you try again ☺");
+                String answer = LoginUser.nextLine();
+
+                if (answer.equalsIgnoreCase("n")){
+                    System.out.println("I'll redirect you to the Register and Login page ☺");
+                    userFound = true;
+                    UserManagementSystem.start();
+                }
             }
         }
     }
