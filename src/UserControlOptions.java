@@ -3,7 +3,6 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 import java.util.*;
 
-// TODO
 // ANDREA
 
 public class UserControlOptions {
@@ -22,9 +21,9 @@ public class UserControlOptions {
     public static void menuUserControlOptions() {
         boolean keepAsking = true;
         while (keepAsking){
-            System.out.println("\n· 1. Access Favourites List" +
-                    "\n· 2. Access Watched List" +
-                    "\n· 9. Go back to Main Menu");
+            System.out.println("\n· 1. Favourites List" +
+                    "\n· 2. Watched List" +
+                    "\n· 9. Main Menu");
 
             int userAnswer = App.userChoice();
             if (userAnswer == 1) {
@@ -35,6 +34,7 @@ public class UserControlOptions {
                 goToWatchedList();
             } else if (userAnswer == 9) {
                 keepAsking = false;
+                SeeStatistics.enteredMainMenuCount();
                 App.appMainChoices();
             }
         }
@@ -87,6 +87,7 @@ public class UserControlOptions {
                         } else {
                             loopChoice1 = false;
                             UserManagementSystem.currentUser.getFavouriteList().add((found));
+                            SeeStatistics.movieFavouriteListCount();
                             System.out.println("\nMovie added to the list!");
                         }
 
@@ -194,6 +195,7 @@ public class UserControlOptions {
                             loopChoice1 = false;
                             if (found != null) {
                                 UserManagementSystem.currentUser.getHistoryList().add(found);
+                                SeeStatistics.movieWatchedListCount();
                                 System.out.println("\nMovie added to the list!");
                             } else {
                                 System.out.println("\n! Movie not found !");

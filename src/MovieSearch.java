@@ -18,7 +18,7 @@ public class MovieSearch {
         while (keepAsking) {
             System.out.println("\n· 1. Search movie by title" +
                     "\n· 2. Search movie by year" +
-                    "\n· 9. Go Back");
+                    "\n· 9. Go Back to Main Menu");
 
             int choice = App.userChoice();
 
@@ -29,6 +29,7 @@ public class MovieSearch {
                 MovieSearch.searchMovieYear();
                 keepAsking = false;
             } else if (choice == 9) {
+                SeeStatistics.enteredMainMenuCount();
                 App.appMainChoices();
                 keepAsking = false;
             } else {
@@ -39,7 +40,7 @@ public class MovieSearch {
 
     public static void searchMovie()  {
         Scanner sc = new Scanner(System.in);
-        System.out.println("· Search for a title");
+        System.out.println("\n· Search for a title");
         boolean found = false;
         String searchTitle = sc.nextLine();
         for (Movie i : Main.movies) {
