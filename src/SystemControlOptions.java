@@ -18,7 +18,8 @@ public class SystemControlOptions {
             System.out.println("· 1. Create movie and add actors" +
                     "\n· 2. Update Movie and add Actors" +
                     "\n· 3. Display Movies" +
-                    "\n· 4. Display Actors" +
+                    "\n· 4. Delete Movies" +
+                    "\n· 5. Display Actors" +
                     "\n· 9. Main Menu");
             int choice = App.userChoice();
 
@@ -37,6 +38,10 @@ public class SystemControlOptions {
                 keepAsking = false;
             } else if (choice == 4) {
                 // Go to DISPLAY Actors
+                SystemControlOptions.deleteMovie();
+                keepAsking = false;
+            } else if (choice == 5){
+                // Go to Display Actors
                 SystemControlOptions.displayActors();
                 keepAsking = false;
             } else if (choice == 9) {
@@ -146,7 +151,52 @@ public class SystemControlOptions {
         }
     }
 
-    // DOESN'T WORK THE FOR EACH LOOP
+    // DELETE MOVIES
+
+    public static void deleteMovie(){
+
+
+        System.out.println(Main.movies);
+        System.out.println("\n· Enter movie title you want to delete:");
+        Scanner userInput = new Scanner(System.in);
+        String userAnswer = userInput.nextLine();
+
+        boolean movieFound = false;
+         Movie movie1 = null;
+        for (Movie movie : Main.movies) {
+            if (movie.getName().equalsIgnoreCase(userAnswer)) {
+                movieFound=true;
+                movie1 = movie;
+            }
+        } if (!movieFound){
+            System.out.println("! Movie not found !");
+        }
+
+        if(movieFound){
+        Main.movies.remove(movie1);
+        System.out.println("Movie removed from the list !");
+        }
+
+        boolean deleteMovieLoop = true;
+        while (deleteMovieLoop){
+        System.out.println("Do You want to delete another movie? " +
+                "\n· Yes" +
+                "\n· No");
+        Scanner userInput1 = new Scanner(System.in);
+        String userAnswer1 = userInput1.nextLine();
+
+        if (!userAnswer1.equalsIgnoreCase("no") && !userAnswer1.equalsIgnoreCase("yes")){
+            System.out.println("\n! Please answer with yes or no !");
+        } else if (userAnswer1.equalsIgnoreCase("no")){
+            deleteMovieLoop = false;
+            App.appMainChoices();
+        } else if (userAnswer1.equalsIgnoreCase("yes")){
+            deleteMovieLoop = false;
+            deleteMovie();
+        }}
+    }
+
+
     public static void displayMovie(){
 
         System.out.println("\nHere you can find the movie list: \n");
