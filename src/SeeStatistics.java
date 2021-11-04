@@ -4,9 +4,9 @@ public class SeeStatistics {
     private static int userInTheSystem = Main.users.size();
     private static int movieFavouriteList = movieFavouriteListCount();
     private static int movieWatchedList = movieWatchedListCount();
-    private static int moviesPre2000 = moviesPre2000();
-    private static int moviesPost2000 = moviesPost2000();
-    private static int usersPassword = usersPassword();
+    private static int moviesPre2000 = moviesPre2000Count();
+    private static int moviesPost2000 = moviesPost2000Count();
+    private static int usersPassword = usersPasswordCount();
 
     public static void start(){
 
@@ -42,7 +42,7 @@ public class SeeStatistics {
         return count;
     }
 
-    public static int moviesPre2000(){
+    public static int moviesPre2000Count(){
         int count = 0;
         for (Movie movie : Main.movies){
             if (movie.getYear() < 2000){
@@ -53,7 +53,7 @@ public class SeeStatistics {
         return count;
     }
 
-    public static int moviesPost2000(){
+    public static int moviesPost2000Count(){
         int count = 0;
         for (Movie movie : Main.movies){
             if (movie.getYear() >= 2000){
@@ -64,7 +64,7 @@ public class SeeStatistics {
         return count;
     }
 
-    public static int usersPassword(){
+    public static int usersPasswordCount(){
         int count = 0;
         for (User user : Main.users){
             if (user.getPassword().equalsIgnoreCase("password")){
