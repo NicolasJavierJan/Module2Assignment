@@ -28,7 +28,6 @@ public class MovieSearch {
                 MovieSearch.searchMovieYear();
                 keepAsking = false;
             } else if (choice == 9) {
-                SeeStatistics.enteredMainMenuCount();
                 App.appMainChoices();
                 keepAsking = false;
             } else {

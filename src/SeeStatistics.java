@@ -2,75 +2,76 @@ public class SeeStatistics {
 
     private static int movieInTheSystem = Main.movies.size();
     private static int userInTheSystem = Main.users.size();
-    private static int movieCreated = 0;
-    private static int movieUpdated = 0;
-    private static int movieFavouriteList = 0;
-    private static int movieWatchedList = 0;
-    private static int enteredSystemControlOptions = 0;
-    private static int enteredUserControlOptions = 0;
-    private static int enteredMovieSearch = 0;
-    private static int enteredStatistics = 0;
-    private static int enteredPlayMovie = 0;
-    private static int enteredMainMenu = 0;
+    private static int movieFavouriteList = movieFavouriteListCount();
+    private static int movieWatchedList = movieWatchedListCount();
+    private static int moviesPre2000 = moviesPre2000();
+    private static int moviesPost2000 = moviesPost2000();
+    private static int usersPassword = usersPassword();
 
     public static void start(){
 
         System.out.println("\n--- Statistics ---");
 
-        System.out.println("\nUser registered in the app: " + userInTheSystem +
-                "\nMovie in the app : " + movieInTheSystem +
-                "\nMovie Created: " + movieCreated +
-                "\nMovie Updated: " + movieUpdated +
-                "\nMovie added to favourites list: " + movieFavouriteList +
-                "\nMovie added to watched list: " + movieWatchedList +
-                "\nNumber of times in System Control Options: " + enteredSystemControlOptions +
-                "\nNumber of times in User Control Options: " + enteredUserControlOptions +
-                "\nNumber of times in Search Movie: " + enteredMovieSearch +
-                "\nNumber of times in See Statistics: " + enteredStatistics +
-                "\nNumber of times in Play Movie: " + enteredPlayMovie +
-                "\nNumber of times in Main Menu: " + enteredMainMenu);
+        System.out.println("\nUsers registered in the app: " + userInTheSystem +
+                "\nMovies in the app : " + movieInTheSystem +
+                "\nMovies added to favourites list: " + movieFavouriteList +
+                "\nMovies added to watched list: " + movieWatchedList +
+                "\nNumber of Movies Pre-2000: " + moviesPre2000 +
+                "\nNumber of Movies Post-2000: " + moviesPost2000 +
+                "\nNumber of Users that have 'Password' as their password: " + usersPassword);
 
         App.appMainChoices();
 
     }
 
-    public static void movieCreatedCount(){
-        movieCreated ++;
+    public static int movieFavouriteListCount(){
+        int count = 0;
+        for (User user : Main.users){
+            count = count + user.getFavouriteList().size();
+        }
+
+        return count;
     }
 
-    public static void movieUpdatedCount(){
-        movieUpdated++;
+    public static int movieWatchedListCount(){
+        int count = 0;
+        for (User user : Main.users){
+            count = count + user.getHistoryList().size();
+        }
+
+        return count;
     }
 
-    public static void movieFavouriteListCount(){
-        movieFavouriteList++;
+    public static int moviesPre2000(){
+        int count = 0;
+        for (Movie movie : Main.movies){
+            if (movie.getYear() < 2000){
+                count++;
+            }
+        }
+
+        return count;
     }
 
-    public static void movieWatchedListCount(){
-        movieWatchedList++;
+    public static int moviesPost2000(){
+        int count = 0;
+        for (Movie movie : Main.movies){
+            if (movie.getYear() >= 2000){
+                count++;
+            }
+        }
+
+        return count;
     }
 
-    public static void enteredSystemControlOptionsCount (){
-        enteredSystemControlOptions ++;
-    }
+    public static int usersPassword(){
+        int count = 0;
+        for (User user : Main.users){
+            if (user.getPassword().equalsIgnoreCase("password")){
+                count++;
+            }
+        }
 
-    public static void enteredUserControlOptionsCount(){
-        enteredUserControlOptions ++;
-    }
-
-    public static void enteredMovieSearchCount(){
-        enteredMovieSearch++;
-    }
-
-    public static void enteredStatisticsCount(){
-        enteredStatistics++;
-    }
-
-    public static void enteredPlayMovieCount(){
-        enteredPlayMovie++;
-    }
-
-    public static void enteredMainMenuCount(){
-        enteredMainMenu ++;
+        return count;
     }
 }

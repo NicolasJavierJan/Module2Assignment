@@ -38,27 +38,22 @@ public class App {
             if (choice == 1) {
                 // Go to SYSTEM CONTROL OPTIONS
                 keepAsking = false;
-                SeeStatistics.enteredSystemControlOptionsCount();
                 SystemControlOptions.start();
             } else if (choice == 2) {
                 // Go to USER CONTROL OPTIONS
                 keepAsking = false;
-                SeeStatistics.enteredUserControlOptionsCount();
                 UserControlOptions.start();
             } else if (choice == 3) {
                 // Go to Search For Movie
                 keepAsking = false;
-                SeeStatistics.enteredMovieSearchCount();
                 MovieSearch.start();
             } else if (choice == 4) {
                 // Go to See Statistics
                 keepAsking = false;
-                SeeStatistics.enteredStatisticsCount();
                 SeeStatistics.start();
             } else if (choice == 5) {
                 // Go to Play a Movie
                 keepAsking = false;
-                SeeStatistics.enteredPlayMovieCount();
                 PlayMovie.start();
             } else if (choice == 9) {
                 keepAsking = false;

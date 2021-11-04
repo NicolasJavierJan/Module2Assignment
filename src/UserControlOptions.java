@@ -33,7 +33,6 @@ public class UserControlOptions {
                 goToWatchedList();
             } else if (userAnswer == 9) {
                 keepAsking = false;
-                SeeStatistics.enteredMainMenuCount();
                 App.appMainChoices();
             }
         }
@@ -164,76 +163,7 @@ public class UserControlOptions {
             while (loopMenuFavList) {
                 menuWatchedList(); // 1: Add movie - 2: see list - 3: go back
                 int choice = App.userChoice();
-/*
-                // FAVOURITE LIST CHOICE 1 - ADD MOVIE
-                if (choice == 1) {
-                    loopFromStart = false;
-                    loopMenuFavList = false;
 
-                    // ADD MOVIE TO FAVOURITE LIST
-                    boolean loopChoice1 = true;
-                    while (loopChoice1) {
-
-                        // FIRST INTERACTION
-                        System.out.println("\nWrite the movie title you want to add:");
-                        Scanner userInput = new Scanner(System.in);
-                        String userFilm = userInput.nextLine();
-
-                        String found = null;
-
-                        for (Movie movie : Main.movies) {
-                            if (userFilm.equalsIgnoreCase(movie.getName())) {
-                                found = movie.getName() + ", seen on " + LocalDate.now();
-                            }
-                        }
-
-                        // CHECK FOR EQUALITY
-                        if (UserManagementSystem.currentUser.getHistoryList().contains(found)) {
-                            System.out.println("\nyou already added this movie! " + UserManagementSystem.currentUser.getHistoryList() + "\nTry again with a different title");
-                        } else {
-                            loopChoice1 = false;
-                            if (found != null) {
-                                UserManagementSystem.currentUser.getHistoryList().add(found);
-                                SeeStatistics.movieWatchedListCount();
-                                System.out.println("\nMovie added to the list!");
-                            } else {
-                                System.out.println("\n! Movie not found !");
-                            }
-                        }
-
-                        // IF TO ADD ANOTHER MOVIE
-                        boolean loopAddAnotherMovie = true;
-                        while (loopAddAnotherMovie) {
-
-                            System.out.println("" +
-                                    "\nDo you want to add another movie? " +
-                                    "\n· Yes" +
-                                    "\n· No");
-                            Scanner userInput1 = new Scanner(System.in);
-                            String userAnswer1 = userInput1.nextLine();
-
-                            // ADD ANOTHER MOVIE - ANSWER WRONG
-                            if (!userAnswer1.equalsIgnoreCase("no") && !userAnswer1.equalsIgnoreCase("yes")) {
-                                loopChoice1 = false;
-                                System.out.println("\n! Please answer with yes or no !");
-                            }
-
-                            // ADD ANOTHER MOVIE - ANSWER NO
-                            if (userAnswer1.equalsIgnoreCase("no")) {
-                                loopChoice1 = false;
-                                loopAddAnotherMovie = false;
-                                System.out.println("\nOk, here you have your list updated: " + UserManagementSystem.currentUser.getHistoryList() + "\n");
-                                menuUserControlOptions();
-                            }
-
-                            // ADD ANOTHER MOVIE - ANSWER YES
-                            if (userAnswer1.equalsIgnoreCase("yes")) {
-                                loopAddAnotherMovie = false;
-                                loopChoice1 = true;
-                            }
-                        }
-                    }
-*/
                     // FAVOURITE LIST CHOICE 2 - SEE WATCHED LIST
                 if (choice == 1) {
                     loopMenuFavList = false;

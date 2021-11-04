@@ -40,7 +40,6 @@ public class SystemControlOptions {
                 SystemControlOptions.displayActors();
                 keepAsking = false;
             } else if (choice == 9) {
-                SeeStatistics.enteredMainMenuCount();
                 App.appMainChoices();
                 keepAsking = false;
             } else {
@@ -102,7 +101,6 @@ public class SystemControlOptions {
                 addActorLoop = false;
 
                 // ADD MOVIE IN THE ARRAYLIST OF MOVIES CREATING A NEW MOVIE OBJECT
-                SeeStatistics.movieCreatedCount();
                 Main.movies.add(new Movie(title, year, newMovieActors, newActorRoles));
 
                 System.out.println("\nOk, here you have the movie you have added:\n" +
@@ -135,8 +133,6 @@ public class SystemControlOptions {
             if (movie.getName().equalsIgnoreCase(userAnswer)) {
                 movieFound = true;
                 Main.movies.remove(movie);
-
-                SeeStatistics.movieUpdatedCount();
                 System.out.println("\nMovie found!");
                 createMovie();
             }

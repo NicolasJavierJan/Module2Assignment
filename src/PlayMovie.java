@@ -54,7 +54,6 @@ public class PlayMovie {
                 if (oneOrTwo == 1) {
                     playMovie();
                 } else if (oneOrTwo == 9) {
-                    SeeStatistics.enteredMainMenuCount();
                     App.appMainChoices();
                 } else {
                     System.out.println("! Please write a number to choose one of the following options !");
@@ -71,7 +70,6 @@ public class PlayMovie {
                 if (oneOrTwo == 1) {
                     playMovie();
                 } else if (oneOrTwo == 9) {
-                    SeeStatistics.enteredMainMenuCount();
                     App.appMainChoices();
                 } else {
                     System.out.println("! Please write a number to choose one of the following options !");
