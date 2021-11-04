@@ -65,8 +65,10 @@ public class SystemControlOptions {
         while (notNumberEntered){
             System.out.println("\n· Enter movie release year:");
             year = App.userChoice();
-            if (year != 0){
+            if (year >= 1900){
                 notNumberEntered = false;
+            } else {
+                System.out.println("Release year have to be after 1900. Try again.");
             }
         }
 

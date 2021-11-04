@@ -80,7 +80,13 @@ public class UserControlOptions {
                         }
 
                         // CHECK FOR EQUALITY
-                        if (UserManagementSystem.currentUser.getFavouriteList().contains(found)){
+                        boolean movieExists = false;
+                        for (Movie movie : UserManagementSystem.currentUser.getFavouriteList()){
+                            if (movie.getName().equalsIgnoreCase(found.getName())){
+                                movieExists = true;
+                            }
+                        }
+                        if (movieExists){
                             System.out.println("\nyou already added this movie! " + UserManagementSystem.currentUser.getFavouriteList() + "\nTry again with a different title\n");
                         } else if (found == null){
                             System.out.println("The movie does not exist!");

@@ -1,24 +1,16 @@
 public class SeeStatistics {
 
-    private static int movieInTheSystem = Main.movies.size();
-    private static int userInTheSystem = Main.users.size();
-    private static int movieFavouriteList = movieFavouriteListCount();
-    private static int movieWatchedList = movieWatchedListCount();
-    private static int moviesPre2000 = moviesPre2000Count();
-    private static int moviesPost2000 = moviesPost2000Count();
-    private static int usersPassword = usersPasswordCount();
-
     public static void start(){
 
         System.out.println("\n--- Statistics ---");
 
-        System.out.println("\nUsers registered in the app: " + userInTheSystem +
-                "\nMovies in the app : " + movieInTheSystem +
-                "\nMovies added to favourites list: " + movieFavouriteList +
-                "\nMovies added to watched list: " + movieWatchedList +
-                "\nNumber of Movies Pre-2000: " + moviesPre2000 +
-                "\nNumber of Movies Post-2000: " + moviesPost2000 +
-                "\nNumber of Users that have 'Password' as their password: " + usersPassword);
+        System.out.println("\nUsers registered in the app: " + Main.users.size() +
+                "\nMovies in the app : " + Main.movies.size() +
+                "\nMovies added to favourites list: " + movieFavouriteListCount() +
+                "\nMovies added to watched list: " + movieWatchedListCount() +
+                "\nNumber of Movies Pre-2000: " + moviesPre2000Count() +
+                "\nNumber of Movies Post-2000: " + moviesPost2000Count() +
+                "\nNumber of Users that have 'Password' as their password: " + usersPasswordCount());
 
         App.appMainChoices();
 
