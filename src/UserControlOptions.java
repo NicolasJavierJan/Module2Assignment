@@ -1,5 +1,6 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.time.LocalDate;
 import java.util.Scanner;
 import java.util.*;
 
@@ -149,9 +150,7 @@ public class UserControlOptions {
 
     // MENU WATCHED LIST
     public static void menuWatchedList(){
-        System.out.println(
-                "· 1. Add movies to Watched list" +
-                        "\n· 2. See Watched list" +
+        System.out.println("· 1. See Watched list" +
                         "\n· 9. Go Back");
     }
 
@@ -165,7 +164,7 @@ public class UserControlOptions {
             while (loopMenuFavList) {
                 menuWatchedList(); // 1: Add movie - 2: see list - 3: go back
                 int choice = App.userChoice();
-
+/*
                 // FAVOURITE LIST CHOICE 1 - ADD MOVIE
                 if (choice == 1) {
                     loopFromStart = false;
@@ -184,7 +183,7 @@ public class UserControlOptions {
 
                         for (Movie movie : Main.movies) {
                             if (userFilm.equalsIgnoreCase(movie.getName())) {
-                                found = movie.getName();
+                                found = movie.getName() + ", seen on " + LocalDate.now();
                             }
                         }
 
@@ -234,14 +233,14 @@ public class UserControlOptions {
                             }
                         }
                     }
-
+*/
                     // FAVOURITE LIST CHOICE 2 - SEE WATCHED LIST
-                } else if (choice == 2) {
+                if (choice == 1) {
                     loopMenuFavList = false;
                     loopFromStart = false;
                     if (UserManagementSystem.currentUser.getHistoryList().isEmpty()) {
                         System.out.println("\nYour list is empty!" +
-                                "\nFirst add movies in the list and come back later :)" + "\n");
+                                "\nPlease watch movies! :)" + "\n");
                     } else {
                         System.out.println("List: " + UserManagementSystem.currentUser.getHistoryList());
                     }

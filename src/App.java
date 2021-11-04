@@ -1,5 +1,4 @@
-import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -30,7 +29,8 @@ public class App {
                     "\n· 3. Search movie" +
                     "\n· 4. See Statistics" +
                     "\n· 5. Play movie" +
-                    "\n· 9. Log out");
+                    "\n· 9. Log out" +
+                    "\n· 15. Exit Program and Save All Changes!" );
 
 
             int choice = userChoice();
@@ -63,6 +63,29 @@ public class App {
             } else if (choice == 9) {
                 keepAsking = false;
                 UserManagementSystem.start();
+            } else if (choice == 15){
+                try {
+                    FileOutputStream fosMovies = new FileOutputStream("src/Movies.ser");
+                    ObjectOutputStream oosMovies = new ObjectOutputStream(fosMovies);
+
+                    oosMovies.writeObject(Main.movies);
+                    oosMovies.close();
+                    fosMovies.close();
+
+                    FileOutputStream fosUser = new FileOutputStream("src/Users.ser");
+                    ObjectOutputStream oosUser = new ObjectOutputStream(fosUser);
+
+                    oosUser.writeObject(Main.users);
+                    oosUser.close();
+                    fosUser.close();
+
+                    System.out.println("Everything was saved. See you soon!");
+
+                    System.exit(0);
+
+                } catch (IOException ioe){
+                    ioe.printStackTrace();
+                }
             } else {
                 System.out.println("! Please write a number and choose one of the following options !");
             }

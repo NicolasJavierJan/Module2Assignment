@@ -1,4 +1,5 @@
 import java.io.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -39,8 +40,10 @@ public class PlayMovie {
                         "⠀⠀ ⠀⠀⠀⠀⠀⢸⣿⣿⣷⣶⣮⣭⣽⣿⣿⣿⣿⣿⣿⣿⠇\n" +
                         "⠀⠀⠀⠀⠀⠀⣀⣀⣈⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇\n" +
                         "⠀⠀⠀⠀⠀⠀⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠃ Nice");
+                UserManagementSystem.currentUser.getHistoryList().add("Shrek, seen on " + LocalDate.now());
             } else {
                 movieFound.printInfo();
+                UserManagementSystem.currentUser.getHistoryList().add(movieFound.getName() + " seen on " + LocalDate.now());
             }
             System.out.println("\n· 1. Play another movie" +
                     "\n· 9. Go back to Main Menu");
