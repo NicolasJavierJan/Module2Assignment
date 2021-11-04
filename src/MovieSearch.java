@@ -64,13 +64,14 @@ public class MovieSearch {
 
     // Searches for the movie year
     public static void searchMovieYear()  {
-        System.out.println("· Search for a year: ");
+        System.out.println("\n· Search for a year: ");
         boolean found = false;
         int searchYear = App.userChoice();
 
         for(Movie i : Main.movies) {
             if(i.getYear() == searchYear){
-                System.out.println("\n" + i.getName());
+                System.out.println(" ");
+                System.out.println(i.getName());
                 found = true;
                 movieSearchMenu();
             }
@@ -88,7 +89,7 @@ public class MovieSearch {
                     MovieSearch.start();
                 }
             } else {
-                System.out.println("! No movies for this year !" +
+                System.out.println("\n! No movies for this year !" +
                         "\n· 1. New search" +
                         "\n· 9. Go back");
                 int one = App.userChoice();

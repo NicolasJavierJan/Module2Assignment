@@ -15,7 +15,7 @@ public class UserManagementSystem {
         boolean keepAsking = true;
 
         while (keepAsking) {
-            System.out.println("Are you an existing user or do you want to register?");
+            System.out.println("\nAre you an existing user or do you want to register?");
             System.out.println("Press the number for the desired option and press enter");
             System.out.println();
             System.out.println("· 1. Log In");
@@ -89,17 +89,25 @@ public class UserManagementSystem {
             }
 
             if (!userFound){
-                System.out.println("! Wrong username or password !");
-                System.out.println("write 'no' to go back to the main menu");
-                System.out.println("write 'yes' to try again");
+                System.out.println("\n! Wrong username or password !\n");
+
+                boolean logInLoop = true;
+                while (logInLoop){
+                System.out.println("\nDo you want to try again?" +
+                        "\n· Yes" +
+                        "\n· No");
                 String answer = LoginUser.nextLine();
+
+                if (!answer.equalsIgnoreCase("no") && !answer.equalsIgnoreCase("yes")) {
+                    System.out.println("\n! Please answer with yes or no !");
+                }
 
                 if (answer.equalsIgnoreCase("no")){
                     //System.out.println("I'll redirect you to the Register and Login page ☺");
                     userFound = true;
                     UserManagementSystem.start();
                 }
-            }
+            }}
         }
     }
 }
