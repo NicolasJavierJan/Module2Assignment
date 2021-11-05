@@ -27,8 +27,8 @@ public class App {
                     "\n· 1. System Control Options - Create, Update, Delete, Display Movies or Display Actors" +
                     "\n· 2. User Control Options - Add movies to your Favourite/Watched list" +
                     "\n· 3. Search movie" +
-                    "\n· 4. See Statistics" +
-                    "\n· 5. Play movie" +
+                    "\n· 4. Play movie" +
+                    "\n· 5. See statistics" +
                     "\n· 9. Log out" +
                     "\n· 15. Exit Program and Save All Changes!" );
 
@@ -50,11 +50,11 @@ public class App {
             } else if (choice == 4) {
                 // Go to See Statistics
                 keepAsking = false;
-                SeeStatistics.start();
+                PlayMovie.start();
             } else if (choice == 5) {
                 // Go to Play a Movie
                 keepAsking = false;
-                PlayMovie.start();
+                SeeStatistics.start();
             } else if (choice == 9) {
                 keepAsking = false;
                 UserManagementSystem.start();

@@ -82,12 +82,12 @@ public class MovieSearch {
             }
         }
         if(foundMovies.size() == 0) {
-            System.out.println("\n! Title not found !\n" +
+            System.out.println("\n! No movies for this year !\n" +
                     "\n· 1. New search" +
                     "\n· 9. Go back");
             int one = App.userChoice();
             if (one == 1) {
-                searchMovie();
+                searchMovieYear();
             } else if (one == 9) {
                 MovieSearch.start();
             }
@@ -101,38 +101,6 @@ public class MovieSearch {
             movieSearchMenu();
         }
 
-       /* for(Movie i : Main.movies) {
-            if(i.getYear() == searchYear){
-                System.out.println(" ");
-                System.out.println("Movies: " + i.getName());
-                found = true;
-                movieSearchMenu();
-            }
-        } */
-
-
-        if(!found) {
-            if (searchYear == 0){
-                System.out.println("· 1. New search" +
-                        "\n· 9. Go back");
-                int one = App.userChoice();
-                if (one == 1) {
-                    searchMovieYear();
-                } else if (one == 9) {
-                    MovieSearch.start();
-                }
-            } else {
-                System.out.println("\n! No movies for this year !" +
-                        "\n· 1. New search" +
-                        "\n· 9. Go back");
-                int one = App.userChoice();
-                if (one == 1) {
-                    searchMovieYear();
-                } else if (one == 9) {
-                    MovieSearch.start();
-                }
-            }
-        }
     }
 
 }
