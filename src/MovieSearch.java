@@ -39,16 +39,14 @@ public class MovieSearch {
     public static void searchMovie()  {
         Scanner sc = new Scanner(System.in);
         System.out.println("\n· Search for a title");
-        boolean found = false;
+        ArrayList<Movie> foundMovies = new ArrayList<>();
         String searchTitle = sc.nextLine();
         for (Movie i : Main.movies) {
             if (i.getName().contains(searchTitle)) {
-                System.out.println(i.getName()  );
-                found = true;
-                movieSearchMenu();
+                foundMovies.add(i);
             }
         }
-        if(found != true) {
+        if(foundMovies.size() == 0) {
             System.out.println("\n! Title not found !\n" +
                     "\n· 1. New search" +
                     "\n· 9. Go back");
@@ -59,6 +57,8 @@ public class MovieSearch {
                 MovieSearch.start();
             }
 
+        } else {
+            System.out.println(foundMovies);
         }
     }
 

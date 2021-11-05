@@ -104,12 +104,13 @@ public class UserManagementSystem {
 
                 if (!answer.equalsIgnoreCase("no") && !answer.equalsIgnoreCase("yes")) {
                     System.out.println("\n! Please answer with yes or no !");
-                }
-
-                if (answer.equalsIgnoreCase("no")){
+                } else if (answer.equalsIgnoreCase("no")){
                     //System.out.println("I'll redirect you to the Register and Login page ☺");
                     userFound = true;
                     UserManagementSystem.start();
+                }  else {
+                    logInLoop = false;
+                    userLogin();
                 }
             }}
         }
