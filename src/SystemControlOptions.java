@@ -17,8 +17,8 @@ public class SystemControlOptions {
 
             System.out.println("· 1. Create movie and add actors" +
                     "\n· 2. Update Movie and add Actors" +
-                    "\n· 3. Display Movies" +
-                    "\n· 4. Delete Movies" +
+                    "\n· 3. Delete Movies" +
+                    "\n· 4. Display Movies" +
                     "\n· 5. Display Actors" +
                     "\n· 9. Main Menu");
             int choice = App.userChoice();
@@ -34,11 +34,11 @@ public class SystemControlOptions {
                 keepAsking = false;
             } else if (choice == 3) {
                 // Go to DISPLAY MOVIE
-                SystemControlOptions.displayMovie();
+                SystemControlOptions.deleteMovie();
                 keepAsking = false;
             } else if (choice == 4) {
                 // Go to DISPLAY Actors
-                SystemControlOptions.deleteMovie();
+                SystemControlOptions.displayMovie();
                 keepAsking = false;
             } else if (choice == 5){
                 // Go to Display Actors
@@ -132,9 +132,14 @@ public class SystemControlOptions {
 
     }
 
-    // SHOULD WORK NOT SURE
+
     public static void updateMovie() {
-        System.out.println("\nMovie List: " + Main.movies);
+        System.out.println("\nMovie List: ");
+
+        for (Movie movie: Main.movies){
+            System.out.println(movie.toString());
+        }
+
         System.out.println("\n· Please enter the name of the movie to Update:");
         Scanner userInput = new Scanner(System.in);
         String userAnswer = userInput.nextLine();
@@ -160,8 +165,11 @@ public class SystemControlOptions {
 
     public static void deleteMovie(){
 
-        System.out.println("\nMovie List: " + Main.movies);
-        System.out.println(Main.movies);
+        System.out.println("\nMovie List: ");
+
+        for (Movie movie: Main.movies){
+            System.out.println(movie.toString());
+        }
         System.out.println("\n· Enter movie title you want to delete:");
         Scanner userInput = new Scanner(System.in);
         String userAnswer = userInput.nextLine();

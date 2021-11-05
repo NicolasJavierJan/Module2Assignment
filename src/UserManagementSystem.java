@@ -58,7 +58,7 @@ public class UserManagementSystem {
             usernameFound = false;
             for (User user : Main.users) {
                 if (user.getUsername().equalsIgnoreCase(username)) {
-                    System.out.println("Username is already taken, please choose a different one");
+                    System.out.println("\nUsername is already taken, please choose a different one");
                     usernameFound = false;
                     start();
                 }

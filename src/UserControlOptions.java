@@ -176,7 +176,7 @@ public class UserControlOptions {
                     loopFromStart = false;
                     if (UserManagementSystem.currentUser.getHistoryList().isEmpty()) {
                         System.out.println("\nYour list is empty!" +
-                                "\nPlease watch movies! :)" + "\n");
+                                "\nPlease watch movies and come back later! :)" + "\n");
                     } else {
                         System.out.println("List: " + UserManagementSystem.currentUser.getHistoryList());
                     }

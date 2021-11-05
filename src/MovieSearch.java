@@ -37,10 +37,12 @@ public class MovieSearch {
     }
 
     public static void searchMovie()  {
+
         Scanner sc = new Scanner(System.in);
         System.out.println("\n· Search for a title");
         ArrayList<Movie> foundMovies = new ArrayList<>();
         String searchTitle = sc.nextLine();
+
         for (Movie i : Main.movies) {
             if (i.getName().contains(searchTitle)) {
                 foundMovies.add(i);
@@ -58,27 +60,58 @@ public class MovieSearch {
             }
 
         } else {
-            System.out.println(foundMovies);
+            System.out.println("\nMovie List: ");
+
+            for (Movie movie: foundMovies){
+                System.out.println(movie.toString());
+            }
+            movieSearchMenu();
         }
     }
 
     // Searches for the movie year
     public static void searchMovieYear()  {
         System.out.println("\n· Search for a year: ");
+        ArrayList<Movie> foundMovies = new ArrayList<>();
         boolean found = false;
         int searchYear = App.userChoice();
 
-        for(Movie i : Main.movies) {
+        for (Movie movie : Main.movies) {
+            if (movie.getYear() == searchYear) {
+                foundMovies.add(movie);
+            }
+        }
+        if(foundMovies.size() == 0) {
+            System.out.println("\n! Title not found !\n" +
+                    "\n· 1. New search" +
+                    "\n· 9. Go back");
+            int one = App.userChoice();
+            if (one == 1) {
+                searchMovie();
+            } else if (one == 9) {
+                MovieSearch.start();
+            }
+
+        } else {
+            System.out.println("\nMovie List: ");
+
+            for (Movie movie: foundMovies){
+                System.out.println(movie.toString());
+            }
+            movieSearchMenu();
+        }
+
+       /* for(Movie i : Main.movies) {
             if(i.getYear() == searchYear){
                 System.out.println(" ");
-                System.out.println(i.getName());
+                System.out.println("Movies: " + i.getName());
                 found = true;
                 movieSearchMenu();
             }
-        }
+        } */
 
 
-        if(found != true) {
+        if(!found) {
             if (searchYear == 0){
                 System.out.println("· 1. New search" +
                         "\n· 9. Go back");

@@ -74,7 +74,7 @@ public class App {
                     oosUser.close();
                     fosUser.close();
 
-                    System.out.println("Everything was saved. See you soon!");
+                    System.out.println("\nEverything was saved. See you soon!");
 
                     System.exit(0);
 
