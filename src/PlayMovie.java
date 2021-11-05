@@ -12,6 +12,7 @@ public class PlayMovie {
     }
 
     public static void playMovie()  {
+        System.out.println("\nList of movies: " + Main.movies);
         System.out.println("\n· Which movie would you like to see?");
 
         Scanner userInput = new Scanner(System.in);
