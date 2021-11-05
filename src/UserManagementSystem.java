@@ -20,6 +20,7 @@ public class UserManagementSystem {
             System.out.println();
             System.out.println("· 1. Log In");
             System.out.println("· 2. Register");
+            System.out.println("· 3. Exit");
 
             int choice = App.userChoice();
 
@@ -30,6 +31,8 @@ public class UserManagementSystem {
             } else if (choice == 2) {
                 userRegister();
                 keepAsking = false;
+            } else if (choice == 3) {
+                System.exit(0);
             } else {
                 System.out.println();
                 System.out.println("! Please choose a number from the list !");
@@ -56,7 +59,8 @@ public class UserManagementSystem {
             for (User user : Main.users) {
                 if (user.getUsername().equalsIgnoreCase(username)) {
                     System.out.println("Username is already taken, please choose a different one");
-                    usernameFound = true;
+                    usernameFound = false;
+                    start();
                 }
 
             }
