@@ -1,9 +1,5 @@
 import java.io.*;
 import java.util.ArrayList;
-
-//  Message for Username or Password, when not found
-// Serialize Users.
-
 public class Main {
 
     public static ArrayList<Movie> movies = new ArrayList<>();

@@ -48,11 +48,11 @@ public class App {
                 keepAsking = false;
                 MovieSearch.start();
             } else if (choice == 4) {
-                // Go to See Statistics
+                // Go to Play movie
                 keepAsking = false;
                 PlayMovie.start();
             } else if (choice == 5) {
-                // Go to Play a Movie
+                // Go to See statistics
                 keepAsking = false;
                 SeeStatistics.start();
             } else if (choice == 9) {
