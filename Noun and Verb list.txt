@@ -1,0 +1,26 @@
+Noun List:
+	System
+	Actors
+	Movies
+	User
+	Favourites List
+	History List - Which and When
+	Title - Actor - Production Year
+	Statistics
+	Application
+	Role
+
+Verb List:
+	Create movie
+	Update movie
+	Delete movie
+	Display movie
+	Display actors
+	Register user
+	Login user
+	Add movies to list
+	See seen movies
+	Search for movies
+	See statistics
+	Play a movie
+	Print out list of actors and roles
